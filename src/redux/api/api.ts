@@ -62,6 +62,16 @@ export const baseApi = createApi({
         method: "GET",
       }),
     }),
+    createBooking: builder.mutation({
+      query: (bookingData) => ({
+        url: 'bookings',
+        method: 'POST',
+        body: bookingData,
+      }),
+    }),
+    getUserBookings: builder.query({
+      query: () => '/bookings/user', 
+    }),
   }),
 });
 
@@ -76,4 +86,6 @@ export const {
   useSignUpMutation,
   useCheckAvailabilityQuery,
   useLazyCheckAvailabilityQuery,
+  useCreateBookingMutation,
+  useGetUserBookingsQuery ,
 } = baseApi;

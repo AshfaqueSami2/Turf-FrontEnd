@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { useLazyCheckAvailabilityQuery } from '../../redux/api/api';
+import { useState } from 'react';
+import { useLazyCheckAvailabilityQuery, useCreateBookingMutation } from '../../redux/api/api';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer
+import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
 
 const BookNow = () => {
   const { id: facilityId } = useParams(); // Extract facility ID from the route parameters
   const [triggerCheckAvailability, { data, error }] = useLazyCheckAvailabilityQuery();
+  const [createBooking, { isLoading: isBookingLoading }] = useCreateBookingMutation(); // Mutation for booking
   const [selectedDate, setSelectedDate] = useState<string>('');
-  const [selectedSlot, setSelectedSlot] = useState<any>(null); // State to track the selected time slot
+  const [startTime, setStartTime] = useState<string>('');
+  const [endTime, setEndTime] = useState<string>('');
 
   const handleCheckAvailability = () => {
     if (selectedDate) {
@@ -16,90 +20,113 @@ const BookNow = () => {
     }
   };
 
-  const handleSlotSelect = (slot: any) => {
-    setSelectedSlot(slot); // Set the clicked slot as selected
+  const handleSlotClick = (slot: { startTime: string, endTime: string }) => {
+    setStartTime(slot.startTime);
+    setEndTime(slot.endTime);
+  };
+
+  const handleBookNow = async () => {
+    if (!startTime || !endTime || !selectedDate) {
+      toast.error('Please select a valid slot and date!');
+      return;
+    }
+
+    const bookingData = {
+      facility: facilityId,
+      date: selectedDate,
+      startTime,
+      endTime,
+    };
+
+    try {
+      await createBooking(bookingData).unwrap(); // Send booking data to the backend
+      toast.success('Booking confirmed!'); // Show success toast
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to confirm booking. Please try again.'); // Show error toast
+    }
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-10 bg-gray-100">
-      {/* Outer Wrapper */}
-      <div className="max-w-2xl mx-auto p-8 bg-white shadow-xl rounded-lg mt-">
-        <h1 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Book a Facility</h1>
+    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+      <ToastContainer /> {/* Add ToastContainer inside the component */}
+      <h1 className="text-2xl font-bold text-gray-800 mb-6">Book a Facility</h1>
 
-        {/* Date Picker */}
-        <div className="mb-6">
-          <label htmlFor="date" className="block text-lg font-medium text-gray-700 mb-2">Select Date</label>
-          <input
-            type="date"
-            id="date"
-            className="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-800"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
-        </div>
-
-        {/* Check Availability Button */}
-        <button
-          onClick={handleCheckAvailability}
-          className="mb-6 w-full py-3 px-6 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
-        >
-          Check Availability
-        </button>
-
-        {/* Availability Display */}
-        {error && (
-          <div className="text-red-500 mb-6">Error: {error.message}</div>
-        )}
-        {data?.availableSlots && data.availableSlots.length > 0 ? (
-          <div className="mb-6">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">Available Slots</h2>
-            <ul className="space-y-2">
-              {data.availableSlots.map((slot: any) => (
-                <li
-                  key={slot.startTime}
-                  onClick={() => handleSlotSelect(slot)} // Handle slot click
-                  className={`cursor-pointer text-gray-900 font-medium border border-gray-300 rounded-lg p-4 text-center 
-                    ${selectedSlot?.startTime === slot.startTime ? 'bg-green-500 text-white' : 'bg-gray-50'}
-                    hover:bg-indigo-200 transition duration-200`}
-                >
-                  {slot.startTime} - {slot.endTime}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          <div className="text-gray-500 mb-6">No available slots for the selected date.</div>
-        )}
-
-        {/* Booking Form */}
-        <div className="mb-4">
-          <label htmlFor="startTime" className="block text-lg font-medium text-gray-700 mb-2">Start Time</label>
-          <input
-            type="time"
-            id="startTime"
-            value={selectedSlot?.startTime || ''} // Pre-fill the selected start time
-            readOnly
-            className="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-800 bg-gray-100"
-          />
-        </div>
-        <div className="mb-6">
-          <label htmlFor="endTime" className="block text-lg font-medium text-gray-700 mb-2">End Time</label>
-          <input
-            type="time"
-            id="endTime"
-            value={selectedSlot?.endTime || ''} // Pre-fill the selected end time
-            readOnly
-            className="block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 text-gray-800 bg-gray-100"
-          />
-        </div>
-
-        {/* Book Now Button */}
-        <button
-          className="w-full py-3 px-6 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition duration-300"
-        >
-          Book Now
-        </button>
+      {/* Date Picker */}
+      <div className="mb-6">
+        <label htmlFor="date" className="block text-sm font-medium text-gray-700">Select Date</label>
+        <input
+          type="date"
+          id="date"
+          className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+        />
       </div>
+
+      {/* Check Availability Button */}
+      <button
+        onClick={handleCheckAvailability}
+        className="mb-6 w-full py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200"
+      >
+        Check Availability
+      </button>
+
+      {/* Availability Display */}
+      {error && (
+        <div className="text-red-500 mb-6">Error: {error.message}</div>
+      )}
+      {data?.availableSlots && data.availableSlots.length > 0 ? (
+        <div className="mb-6">
+          <h2 className="text-lg font-medium text-gray-800 mb-2">Available Slots:</h2>
+          <ul className="space-y-2">
+            {data.availableSlots.map((slot: { startTime: string, endTime: string }) => (
+              <li
+                key={slot.startTime}
+                className="text-gray-700 border border-gray-300 rounded-lg p-2 bg-gray-50 cursor-pointer hover:bg-indigo-100"
+                onClick={() => handleSlotClick(slot)}
+              >
+                {slot.startTime} - {slot.endTime}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="text-gray-500 mb-6">No available slots for the selected date.</div>
+      )}
+
+      {/* Booking Form - Start Time and End Time fields */}
+      <div className="mb-4">
+        <label htmlFor="startTime" className="block text-sm font-medium text-gray-700">Start Time</label>
+        <input
+          type="time"
+          id="startTime"
+          className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          value={startTime}
+          readOnly
+        />
+      </div>
+      <div className="mb-6">
+        <label htmlFor="endTime" className="block text-sm font-medium text-gray-700">End Time</label>
+        <input
+          type="time"
+          id="endTime"
+          className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          value={endTime}
+          readOnly
+        />
+      </div>
+
+      {/* Book Now Button */}
+      <button
+        onClick={handleBookNow}
+        className={`w-full py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200 ${
+          !startTime || !endTime || isBookingLoading ? 'opacity-50 cursor-not-allowed' : ''
+        }`}
+        disabled={!startTime || !endTime || isBookingLoading}
+      >
+       Book Now
+      </button>
     </div>
   );
 };
