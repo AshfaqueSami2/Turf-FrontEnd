@@ -72,6 +72,12 @@ export const baseApi = createApi({
     getUserBookings: builder.query({
       query: () => '/bookings/user', 
     }),
+    deleteBooking: builder.mutation({
+      query: (id) => ({
+        url: `bookings/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -88,4 +94,5 @@ export const {
   useLazyCheckAvailabilityQuery,
   useCreateBookingMutation,
   useGetUserBookingsQuery ,
+  useDeleteBookingMutation,
 } = baseApi;

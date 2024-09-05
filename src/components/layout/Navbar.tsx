@@ -90,12 +90,14 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo and Brand */}
             <div className="flex items-center">
+              <Link to='/'>
               <img
                 style={{ height: "50px", borderRadius: "5px" }}
                 src="https://i.ibb.co/TBr176y/Gemini-Generated-Image-9pcug49pcug49pcu.jpg"
                 alt="Logo"
                 className="mr-3"
               />
+              </Link>
               <Link to="/" className="text-xl font-bold text-gray-800 hover:text-indigo-700 transition-colors duration-300">
                 Sam Turf
               </Link>

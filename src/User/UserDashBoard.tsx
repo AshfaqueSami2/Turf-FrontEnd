@@ -7,11 +7,11 @@ const UserDashboard: React.FC = () => {
 
   const userName = user?.data?.name;
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div style={{marginTop:'85px'}} className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
       <aside className="w-64 bg-gray-900 text-white flex flex-col">
         <div className="flex items-center justify-center h-20 border-b border-gray-800">
-          <div className="text-3xl font-bold text-green-400">Q.</div>
+          <div className="text-3xl font-bold text-green-400">User Panel</div>
         </div>
         <nav className="mt-10 flex-1">
           <Link
@@ -79,26 +79,18 @@ const UserDashboard: React.FC = () => {
               Please select a category
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="w-16 h-16 bg-gray-900 flex items-center justify-center rounded-full mb-4">
-                  <span className="material-icons-outlined text-white">
-                    gavel
-                  </span>
-                </div>
+              <Link to='/' className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
+                <img style={{height:'50px',marginBottom:'15px'}} src="https://i.ibb.co/HKn2r42/square-14034325.png" alt="" />
                 <h3 className="text-xl font-semibold text-gray-700">
-                  Legal Services
+                 Home
                 </h3>
-              </div>
-              <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="w-16 h-16 bg-gray-900 flex items-center justify-center rounded-full mb-4">
-                  <span className="material-icons-outlined text-white">
-                    business
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-700">
+              </Link>
+              <Link to='/user/viewBookings' className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
+                <img style={{height:'50px',marginBottom:'15px'}} src="https://i.ibb.co/T4tpXZK/booking-online-6030216.png" alt="" />
+                <h3  className="text-xl text-center font-semibold text-gray-700">
                   Marketing Services
                 </h3>
-              </div>
+              </Link>
               <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="w-16 h-16 bg-gray-900 flex items-center justify-center rounded-full mb-4">
                   <span className="material-icons-outlined text-white">

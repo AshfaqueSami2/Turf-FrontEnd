@@ -37,6 +37,7 @@ const Banner = () => {
         </div>
       </div>
 
+
       {/* Services Section */}
       <div className="container mx-auto flex flex-wrap justify-center mt-12 gap-4">
         <div className="bg-white shadow-lg rounded-lg p-4 flex items-center space-x-3 hover:shadow-xl transition duration-300">

@@ -1,4 +1,3 @@
-import Swiper from "swiper"; // Import Swiper if you're using it
 import "swiper/swiper-bundle.css"; // Make sure to include Swiper styles
 
 // Optional: you might need to configure the Swiper settings as per your requirements.
