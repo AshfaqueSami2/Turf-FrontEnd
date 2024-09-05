@@ -88,19 +88,15 @@ const UserDashboard: React.FC = () => {
               <Link to='/user/viewBookings' className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
                 <img style={{height:'50px',marginBottom:'15px'}} src="https://i.ibb.co/T4tpXZK/booking-online-6030216.png" alt="" />
                 <h3  className="text-xl text-center font-semibold text-gray-700">
-                  Marketing Services
+                 View Bookings
                 </h3>
               </Link>
-              <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="w-16 h-16 bg-gray-900 flex items-center justify-center rounded-full mb-4">
-                  <span className="material-icons-outlined text-white">
-                    book
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  Advisory Services
+              <Link to='/aboutUs' className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
+                <img style={{height:'50px',marginBottom:'15px'}} src="https://i.ibb.co/HzYpX0N/group-921347.png" alt="" />
+                <h3 className="text-xl text-center font-semibold text-gray-700">
+                  About Us
                 </h3>
-              </div>
+              </Link>
               <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
                 <div className="w-16 h-16 bg-gray-900 flex items-center justify-center rounded-full mb-4">
                   <span className="material-icons-outlined text-white">
