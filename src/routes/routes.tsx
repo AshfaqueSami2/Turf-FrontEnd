@@ -17,6 +17,7 @@ import BookNow from "../components/pages/BookNow"; // Import BookNow component
 import ViewBookingsUser from "../User/viewBookings";
 import AboutUs from "../components/pages/AboutUs";
 import ContactUs from "../components/pages/ContactUs";
+import NotFoundRoute from "../components/pages/NotFoundRoute";
 
 const router = createBrowserRouter([
   {
@@ -131,6 +132,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path:'*',
+        element:(
+          <NotFoundRoute></NotFoundRoute>
+        )
+      }
     ],
   },
 ]);
