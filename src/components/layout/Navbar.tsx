@@ -65,17 +65,22 @@
 // };
 
 // export default Navbar;
-
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
+import { useState } from "react";
 
 const Navbar = () => {
   const { isAuthenticated, isAdmin, logout } = useAuth();
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State to track mobile menu
 
   const handleLogout = () => {
     logout();
     navigate("/");
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen); // Toggle the menu state
   };
 
   return (
@@ -92,11 +97,11 @@ const Navbar = () => {
                 className="mr-3"
               />
               <Link to="/" className="text-xl font-bold text-gray-800 hover:text-indigo-700 transition-colors duration-300">
-              Sam Turf
+                Sam Turf
               </Link>
             </div>
 
-            {/* Navigation Links */}
+            {/* Desktop Navigation Links */}
             <div className="hidden lg:flex space-x-8">
               <Link
                 to="/"
@@ -153,11 +158,11 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-              data-collapse-toggle="navbar-with-text"
+              onClick={toggleMobileMenu}
               type="button"
               className="lg:hidden p-2 ml-3 text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-with-text"
-              aria-expanded="false"
+              aria-expanded={isMobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -177,71 +182,79 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div className="lg:hidden" id="navbar-with-text">
-          <ul className="px-4 pt-4 pb-2 space-y-4">
-            <li>
-              <Link
-                to="/"
-                className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/viewFacilities"
-                className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
-              >
-                Facilities
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/aboutUs"
-                className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
-              >
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contactUs"
-                className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
-              >
-                Contact
-              </Link>
-            </li>
-            {isAuthenticated && (
+        {isMobileMenuOpen && (
+          <div className="lg:hidden" id="navbar-with-text">
+            <ul className="px-4 pt-4 pb-2 space-y-4">
               <li>
                 <Link
-                  to={isAdmin ? "/admin/dashboard" : "/user/dashboard"}
+                  to="/"
                   className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Dashboard
+                  Home
                 </Link>
               </li>
-            )}
-            {isAuthenticated ? (
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="w-full text-left text-red-600 text-sm font-medium hover:text-red-800 transition duration-300"
-                >
-                  Logout
-                </button>
-              </li>
-            ) : (
               <li>
                 <Link
-                  to="/login"
+                  to="/viewFacilities"
                   className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Login
+                  Facilities
                 </Link>
               </li>
-            )}
-          </ul>
-        </div>
+              <li>
+                <Link
+                  to="/aboutUs"
+                  className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contactUs"
+                  className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
+              </li>
+              {isAuthenticated && (
+                <li>
+                  <Link
+                    to={isAdmin ? "/admin/dashboard" : "/user/dashboard"}
+                    className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+              )}
+              {isAuthenticated ? (
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="w-full text-left text-red-600 text-sm font-medium hover:text-red-800 transition duration-300"
+                  >
+                    Logout
+                  </button>
+                </li>
+              ) : (
+                <li>
+                  <Link
+                    to="/login"
+                    className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
+        )}
       </nav>
     </div>
   );

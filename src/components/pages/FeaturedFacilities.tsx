@@ -55,6 +55,7 @@
 // export default FeaturedFacilities;
 
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { useGetFacilitiesQuery } from "../../redux/api/api";
 
 const FeaturedFacilities = () => {
@@ -63,7 +64,7 @@ const FeaturedFacilities = () => {
 
   useEffect(() => {
     if (data && data.data) {
-      // Select the first 6 facilities
+      // Select the first 4 facilities
       const facilities = data.data.slice(0, 4);
       setFeaturedFacilities(facilities);
     }
@@ -86,9 +87,10 @@ const FeaturedFacilities = () => {
       <h1 className="text-3xl font-bold mb-8 text-center">Featured Facilities</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
         {featuredFacilities.map((facility: any) => (
-          <div
+          <Link
             key={facility._id}
-            className="bg-white shadow-lg rounded-xl overflow-hidden transition-transform transform hover:scale-105"
+            to={`/viewFacilities/${facility._id}`} // Navigate to the facility details page
+            className="bg-white shadow-lg rounded-xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl" // Added hover effect for shadow
           >
             <div className="relative">
               <img
@@ -107,20 +109,22 @@ const FeaturedFacilities = () => {
               </span>
             </div>
             <div className="p-5">
-              <h3 className="text-lg font-semibold text-gray-900">{facility.name}</h3>
-              <div className="flex justify-between items-center mt-3">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{facility.name}</h3>
+              <div className="flex justify-between items-center">
                 <span className="text-gray-800 font-bold text-lg">${facility.pricePerHour}</span>
                 {facility.oldPrice && (
-                  <span className="text-gray-400 line-through text-sm ml-2">{facility.oldPrice}</span>
+                  <span className="text-gray-400 line-through text-sm ml-2">
+                    ${facility.oldPrice}
+                  </span>
                 )}
               </div>
               {facility.status === "Available" && (
                 <button className="bg-blue-600 text-white mt-4 w-full py-2 rounded-lg hover:bg-blue-700 transition">
-                  Purchase Now
+                  Book Now
                 </button>
               )}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
