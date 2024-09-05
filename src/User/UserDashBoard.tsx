@@ -27,18 +27,18 @@ const UserDashboard: React.FC = () => {
             <span className="ml-4">View Bookings</span>
           </Link>
           <Link
-            to="/personas"
+            to="/aboutUs"
             className="flex items-center px-6 py-3 hover:bg-gray-800 hover:text-green-400 transition duration-200"
           >
-    
-            <span className="ml-4">Personas</span>
+            <span className="ml-4">About Us</span>
           </Link>
           <Link
-            to="/settings"
+            to="/contactUs"
             className="flex items-center px-6 py-3 hover:bg-gray-800 hover:text-green-400 transition duration-200"
           >
-            <span className="ml-4">Settings</span>
+            <span className="ml-4">Contact Us</span>
           </Link>
+          
         </nav>
       </aside>
 
@@ -97,16 +97,12 @@ const UserDashboard: React.FC = () => {
                   About Us
                 </h3>
               </Link>
-              <div className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
-                <div className="w-16 h-16 bg-gray-900 flex items-center justify-center rounded-full mb-4">
-                  <span className="material-icons-outlined text-white">
-                    build
-                  </span>
-                </div>
-                <h3 className="text-xl font-semibold text-gray-700">
-                  Technical Services
+              <Link to='/contactUs' className="flex flex-col items-center justify-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-shadow duration-300">
+                <img  style={{height:'50px',marginBottom:'15px'}} src="https://i.ibb.co/GQVSRw2/address-book-8661123.png" alt="" />
+                <h3 className="text-xl text-center font-semibold text-gray-700">
+                 Contact Us
                 </h3>
-              </div>
+              </Link>
             </div>
           </div>
           <div className="flex justify-end mt-6">

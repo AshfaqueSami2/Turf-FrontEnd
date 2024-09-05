@@ -153,7 +153,7 @@ const Navbar = () => {
                   to="/login"
                   className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
                 >
-                  Login
+                  Login/Register
                 </Link>
               )}
             </div>
@@ -250,7 +250,7 @@ const Navbar = () => {
                     className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    Login
+                    Login/Register
                   </Link>
                 </li>
               )}
