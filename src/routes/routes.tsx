@@ -14,6 +14,9 @@ import SignUp from "../components/pages/SignUp";
 import FacilityListing from "../components/pages/FacilityListing";
 import FacilityDetails from "../components/pages/FacilityDetails";
 import BookNow from "../components/pages/BookNow"; // Import BookNow component
+import ViewBookingsUser from "../User/viewBookings";
+import AboutUs from "../components/pages/AboutUs";
+import ContactUs from "../components/pages/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs> ,
+      },
+      {
+        path: "/contactUs",
+        element: <ContactUs></ContactUs> ,
       },
       {
         path: "/signUp",
@@ -109,6 +120,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UserDashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/user/viewBookings", // New route for users to view their bookings
+        element: (
+          <PrivateRoute>
+            <ViewBookingsUser />
           </PrivateRoute>
         ),
       },

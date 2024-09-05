@@ -21,7 +21,7 @@ const UserDashboard: React.FC = () => {
           Home
           </Link>
           <Link
-            to="/connections"
+            to="/user/viewBookings"
             className="flex items-center px-6 py-3 hover:bg-gray-800 hover:text-green-400 transition duration-200"
           >
             <span className="ml-4">View Bookings</span>

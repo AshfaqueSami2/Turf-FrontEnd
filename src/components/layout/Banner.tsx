@@ -2,46 +2,124 @@ import bannerPicture from "../../assets/bannerImg/gettyimages-2163943380-2048x20
 
 const Banner = () => {
   return (
-    <div>
-      <main className="bg-white relative overflow-hidden">
-        <div className="bg-white flex relative z-20 items-center overflow-hidden">
-          <div className="container mx-auto px-6 py-16 flex flex-col sm:flex-row relative">
-            <div className="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20 mb-8 sm:mb-0">
-              <span className="w-20 h-2 bg-black mb-8"></span>
-              <h1 className="font-bebas-neue uppercase text-6xl sm:text-8xl font-black flex flex-col leading-none text-black">
-                Book
-                <span className="text-5xl sm:text-7xl">Now</span>
-              </h1>
-              <p className="text-sm sm:text-base text-black mt-4">
-                Dimension of reality that makes change possible and
-                understandable. An indefinite and homogeneous environment in
-                which natural events and human existence take place.
-              </p>
-              <div className="flex mt-8">
-                <a
-                  href="#"
-                  className="uppercase py-2 px-4 rounded-lg bg-pink-500 border-2 border-transparent text-white text-md mr-4 hover:bg-pink-400"
-                >
-                  Get started
-                </a>
-                <a
-                  href="#"
-                  className="uppercase py-2 px-4 rounded-lg bg-transparent border-2 border-pink-500 text-pink-500 hover:bg-pink-500 hover:text-white text-md"
-                >
-                  Read more
-                </a>
-              </div>
-            </div>
-            <div className="sm:w-1/3 lg:w-3/5 relative">
-              <img
-                src={bannerPicture}
-                className="max-w-xs md:max-w-md lg:max-w-lg m-auto"
-              />
-            </div>
-          </div>
+    <section className="bg-[#FEF9E7] py-40 px-6 lg:px-16">
+    <div className="container mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      {/* Left Section */}
+      <div>
+        <p className="text-green-700 uppercase text-sm font-semibold mb-3">
+          #RevitalizingYourGame
+        </p>
+        <h1 className="text-4xl lg:text-5xl font-bold text-green-900 mb-6 leading-tight">
+          Elevate Your Badminton Journey
+        </h1>
+        <p className="text-gray-700 mb-8">
+          Discover the path to becoming a better badminton player with our expert coaches and state-of-the-art facilities. Whether you're just starting out or fine-tuning your skills, our comprehensive training programs help you enhance your game, combining expert strategies and cutting-edge practices to take your performance to the next level.
+        </p>
+        <div className="flex space-x-4">
+          <button className="bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
+            Book a Session
+          </button>
+          <button className="bg-white border border-green-600 text-green-600 px-6 py-3 rounded-lg shadow-lg hover:bg-green-50 transition duration-300">
+            Explore Our Programs
+          </button>
         </div>
-      </main>
+      </div>
+
+      {/* Right Section - Single Image */}
+      <div className="flex justify-center">
+        <div className="rounded-full overflow-hidden w-64 h-64 mx-auto">
+          <img
+            src="https://i.ibb.co/55CQfR2/premium-vector-1714230285144-f9b6172c077f.jpg"
+            alt="Badminton Illustration"
+            className="object-cover w-full h-full"
+          />
+        </div>
+      </div>
     </div>
+
+    {/* Services Section */}
+    <div className="container mx-auto flex justify-center mt-12 space-x-4">
+      <div className="bg-white shadow-lg rounded-lg p-4 flex items-center space-x-3 hover:shadow-xl transition duration-300">
+        <div className="bg-green-100 p-3 rounded-full">
+          <svg
+            className="w-6 h-6 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 8v4l3 3m5-9a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <p className="text-gray-700 font-medium">Training Programs</p>
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-4 flex items-center space-x-3 hover:shadow-xl transition duration-300">
+        <div className="bg-green-100 p-3 rounded-full">
+          <svg
+            className="w-6 h-6 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 8v4l3 3m5-9a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <p className="text-gray-700 font-medium">Gear & Accessories</p>
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-4 flex items-center space-x-3 hover:shadow-xl transition duration-300">
+        <div className="bg-green-100 p-3 rounded-full">
+          <svg
+            className="w-6 h-6 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 8v4l3 3m5-9a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <p className="text-gray-700 font-medium">Tournaments & Events</p>
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg p-4 flex items-center space-x-3 hover:shadow-xl transition duration-300">
+        <div className="bg-green-100 p-3 rounded-full">
+          <svg
+            className="w-6 h-6 text-green-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M12 8v4l3 3m5-9a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <p className="text-gray-700 font-medium">Badminton Store</p>
+      </div>
+    </div>
+  </section>
   );
 };
 
