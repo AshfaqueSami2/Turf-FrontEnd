@@ -40,13 +40,18 @@ const BookNow = () => {
       endTime,
     };
 
+    setSelectedDate('');
+    setStartTime('');
+    setEndTime('');
+    setSelectedSlot(null);
+
     try {
       await createBooking(bookingData).unwrap();
       toast.success('Booking confirmed!');
     } catch (error) {
       console.error(error);
-      toast.error('Failed to confirm booking. Please try again.');
-    }
+      const errorMessage = error?.data?.message || error.message || 'Failed to confirm booking. Please try again.';
+      toast.error(errorMessage);    }
   };
 
   return (
@@ -132,3 +137,5 @@ const BookNow = () => {
 };
 
 export default BookNow;
+
+
