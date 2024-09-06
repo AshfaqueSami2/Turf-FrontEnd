@@ -84,7 +84,7 @@
 
 
 
-import React, { useState } from "react";
+import  { useState } from "react";
 import { useCreateAdminMutation } from "../../redux/api/api";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // Import icons for password visibility
 import { ToastContainer, toast } from "react-toastify"; // Import toast
