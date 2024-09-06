@@ -88,7 +88,7 @@ const ContactUs = () => {
 </section>
 
 
-
+{/* component 2 */}
 <section className="py-12 px-6 lg:px-0 bg-gray-50">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
@@ -190,6 +190,10 @@ const ContactUs = () => {
         </div>
       </div>
     </section>
+
+
+
+    {/* component 3 */}
 </div>
   );
 };

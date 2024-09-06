@@ -53,7 +53,6 @@
 // };
 
 // export default FeaturedFacilities;
-
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { useGetFacilitiesQuery } from "../../redux/api/api";
@@ -126,6 +125,16 @@ const FeaturedFacilities = () => {
             </div>
           </Link>
         ))}
+      </div>
+
+      {/* All Facilities Button */}
+      <div className="flex justify-center mt-10">
+        <Link
+          to="/viewFacilities"
+          className="bg-[#EFFCF3] text-gray-800 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-200 transition"
+        >
+          All Facilities
+        </Link>
       </div>
     </div>
   );

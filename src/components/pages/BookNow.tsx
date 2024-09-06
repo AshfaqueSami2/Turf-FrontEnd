@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { useLazyCheckAvailabilityQuery, useCreateBookingMutation } from '../../redux/api/api';
 import { useParams } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify'; // Import toast and ToastContainer
-import 'react-toastify/dist/ReactToastify.css'; // Import the CSS for react-toastify
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookNow = () => {
-  const { id: facilityId } = useParams(); // Extract facility ID from the route parameters
+  const { id: facilityId } = useParams();
   const [triggerCheckAvailability, { data, error }] = useLazyCheckAvailabilityQuery();
-  const [createBooking, { isLoading: isBookingLoading }] = useCreateBookingMutation(); // Mutation for booking
+  const [createBooking, { isLoading: isBookingLoading }] = useCreateBookingMutation();
   const [selectedDate, setSelectedDate] = useState<string>('');
   const [startTime, setStartTime] = useState<string>('');
   const [endTime, setEndTime] = useState<string>('');
+  const [selectedSlot, setSelectedSlot] = useState<{ startTime: string; endTime: string } | null>(null); // Track the selected slot
 
   const handleCheckAvailability = () => {
     if (selectedDate) {
@@ -23,6 +24,7 @@ const BookNow = () => {
   const handleSlotClick = (slot: { startTime: string, endTime: string }) => {
     setStartTime(slot.startTime);
     setEndTime(slot.endTime);
+    setSelectedSlot(slot); // Set the selected slot
   };
 
   const handleBookNow = async () => {
@@ -39,17 +41,17 @@ const BookNow = () => {
     };
 
     try {
-      await createBooking(bookingData).unwrap(); // Send booking data to the backend
-      toast.success('Booking confirmed!'); // Show success toast
+      await createBooking(bookingData).unwrap();
+      toast.success('Booking confirmed!');
     } catch (error) {
       console.error(error);
-      toast.error('Failed to confirm booking. Please try again.'); // Show error toast
+      toast.error('Failed to confirm booking. Please try again.');
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <ToastContainer /> {/* Add ToastContainer inside the component */}
+    <div style={{ marginTop: '117px', marginBottom: '117px' }} className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg">
+      <ToastContainer />
       <h1 className="text-2xl font-bold text-gray-800 mb-6">Book a Facility</h1>
 
       {/* Date Picker */}
@@ -73,17 +75,16 @@ const BookNow = () => {
       </button>
 
       {/* Availability Display */}
-      {error && (
-        <div className="text-red-500 mb-6">Error: {error.message}</div>
-      )}
+      {error && <div className="text-red-500 mb-6">Error: {error.message}</div>}
       {data?.availableSlots && data.availableSlots.length > 0 ? (
         <div className="mb-6">
           <h2 className="text-lg font-medium text-gray-800 mb-2">Available Slots:</h2>
           <ul className="space-y-2">
-            {data.availableSlots.map((slot: { startTime: string, endTime: string }) => (
+            {data.availableSlots.map((slot: { startTime: string; endTime: string }) => (
               <li
                 key={slot.startTime}
-                className="text-gray-700 border border-gray-300 rounded-lg p-2 bg-gray-50 cursor-pointer hover:bg-indigo-100"
+                className={`text-gray-700 border border-gray-300 rounded-lg p-2 bg-gray-50 cursor-pointer hover:bg-indigo-100 
+                  ${selectedSlot?.startTime === slot.startTime && selectedSlot?.endTime === slot.endTime ? 'bg-green-100 border-green-400' : ''}`}
                 onClick={() => handleSlotClick(slot)}
               >
                 {slot.startTime} - {slot.endTime}
@@ -120,12 +121,11 @@ const BookNow = () => {
       {/* Book Now Button */}
       <button
         onClick={handleBookNow}
-        className={`w-full py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200 ${
-          !startTime || !endTime || isBookingLoading ? 'opacity-50 cursor-not-allowed' : ''
-        }`}
+        className={`w-full py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-200 
+          ${!startTime || !endTime || isBookingLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
         disabled={!startTime || !endTime || isBookingLoading}
       >
-       Book Now
+        Proceed With Payment
       </button>
     </div>
   );

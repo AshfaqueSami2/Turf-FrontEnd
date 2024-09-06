@@ -96,7 +96,7 @@ const HowItWorks: React.FC = () => {
       <section className="py-24 bg-gray-50">
   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 className="text-center text-4xl font-extrabold text-gray-900 mb-12">
-      What our customers say about <span className="text-indigo-600">Pagedone</span>
+      What our customers say about <span className="text-green-600">Sam Turf</span>
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Testimonial 1 */}
