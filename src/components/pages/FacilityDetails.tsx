@@ -1,103 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import { useParams, Link } from 'react-router-dom';
-// import { useGetFacilitiesQuery } from '../../redux/api/api';
-// import { TailSpin } from 'react-loader-spinner';
-// import { ToastContainer, toast } from 'react-toastify';
-// import { FaTools, FaSmile, FaCouch, FaStar } from 'react-icons/fa';
-// import 'react-toastify/dist/ReactToastify.css';
-
-// const FacilityDetails: React.FC = () => {
-//   const { id } = useParams<{ id: string }>();
-//   const { data: facilities, error, isLoading } = useGetFacilitiesQuery(null);
-//   const [facility, setFacility] = useState<any>(null);
-
-//   useEffect(() => {
-//     if (facilities) {
-//       const foundFacility = facilities.data.find((f: any) => f._id === id);
-//       setFacility(foundFacility);
-//     }
-//   }, [facilities, id]);
-
-//   if (error) {
-//     toast.error('Error loading facility details.');
-//   }
-
-//   if (isLoading) {
-//     return (
-//       <div className="flex justify-center items-center h-64">
-//         <TailSpin height="80" width="80" color="#D6BCFA" ariaLabel="loading" />
-//       </div>
-//     );
-//   }
-
-//   if (!facility) {
-//     return (
-//       <div className="flex justify-center items-center h-64">
-//         <TailSpin height="80" width="80" color="#D6BCFA" ariaLabel="loading" />
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div className="container mx-auto px-4 py-6">
-//       <ToastContainer />
-//       <div className="flex flex-col lg:flex-row items-start bg-white p-8 rounded-xl shadow-lg space-y-6 lg:space-y-0 lg:space-x-6">
-//         <div className="flex-1">
-//           <img
-//             src={facility.image}
-//             alt={facility.name}
-//             className="w-full h-auto object-cover rounded-xl shadow-md"
-//           />
-//         </div>
-//         <div className="flex-1">
-//           <div className="text-gray-800">
-//             <h2 className="text-3xl font-semibold mb-4 text-purple-500">Facility Details</h2>
-//             <div className="grid grid-cols-2 gap-4 mb-6 text-lg">
-//               <div className="font-semibold text-gray-700">Location:</div>
-//               <div className="text-gray-600">{facility.location}</div>
-//               <div className="font-semibold text-gray-700">Price Per Hour:</div>
-//               <div className="text-gray-600">${facility.pricePerHour} / hr</div>
-//             </div>
-//           </div>
-
-//           <div className="text-gray-800">
-//             <h2 className="text-2xl font-semibold mb-4 text-purple-500">About this Facility</h2>
-//             <p className="mb-6 text-gray-700">{facility.description}</p>
-//           </div>
-
-//           <div className="flex justify-around text-gray-800 mb-6">
-//             <div className="flex flex-col items-center text-purple-500">
-//               <FaTools className="text-4xl mb-2" />
-//               <span className="text-lg">Customizable</span>
-//             </div>
-//             <div className="flex flex-col items-center text-purple-500">
-//               <FaSmile className="text-4xl mb-2" />
-//               <span className="text-lg">Adaptable</span>
-//             </div>
-//             <div className="flex flex-col items-center text-purple-500">
-//               <FaCouch className="text-4xl mb-2" />
-//               <span className="text-lg">Comfortable</span>
-//             </div>
-//             <div className="flex flex-col items-center text-purple-500">
-//               <FaStar className="text-4xl mb-2" />
-//               <span className="text-lg">Fashionable</span>
-//             </div>
-//           </div>
-
-//           <Link
-//             to={`/book/${id}`}
-//             className="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 text-center block"
-//           >
-//             Book Now
-//           </Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default FacilityDetails;
-
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGetFacilitiesQuery } from "../../redux/api/api";
@@ -105,15 +5,26 @@ import { TailSpin } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// Define Facility interface
+interface Facility {
+  _id: string;
+  name: string;
+  category: string;
+  pricePerHour: number;
+  description: string;
+  image: string;
+  location: string;
+}
+
 const FacilityDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data: facilities, error, isLoading } = useGetFacilitiesQuery(null);
-  const [facility, setFacility] = useState<any>(null);
+  const [facility, setFacility] = useState<Facility | null>(null); // Use Facility type
 
   useEffect(() => {
     if (facilities) {
-      const foundFacility = facilities.data.find((f: any) => f._id === id);
-      setFacility(foundFacility);
+      const foundFacility = facilities.data.find((f: Facility) => f._id === id); // Use Facility type
+      setFacility(foundFacility || null); // Handle case where no facility is found
     }
   }, [facilities, id]);
 
@@ -183,7 +94,7 @@ const FacilityDetails: React.FC = () => {
               <div className="flex flex-col gap-4 text-gray-800 mb-6">
                 <div className="flex justify-between">
                   <span className="font-semibold">Operating Hours:</span>
-                  <span>{facility.operatingHours || "9 AM - 6 PM"}</span>
+                  
                 </div>
                 <div className="flex justify-between">
                   <span className="font-semibold">Location:</span>
@@ -201,13 +112,7 @@ const FacilityDetails: React.FC = () => {
 
             {/* Facility Image Section */}
             <div>
-              <div
-                style={{
-                  "--swiper-navigation-color": "#fff",
-                  "--swiper-pagination-color": "#fff",
-                }}
-                className="swiper product-prev mb-6"
-              >
+              <div className="swiper product-prev mb-6">
                 <div className="swiper-wrapper">
                   <div className="swiper-slide">
                     <img
@@ -218,63 +123,11 @@ const FacilityDetails: React.FC = () => {
                   </div>
                   <div className="swiper-slide">
                     <img
-                      src={facility.imageSecondary}
+                    
                       alt="Additional view"
                       className="mx-auto w-32 h-32 object-cover rounded-full shadow-md"
                     />
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* stats */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl py-10 px-10 xl:py-16 xl:px-20 bg-gray-50 flex items-center justify-between flex-col gap-16 lg:flex-row">
-            <div className="w-full lg:w-60">
-              <h2 className="font-manrope text-4xl font-bold text-gray-900 mb-4 text-center lg:text-left">
-                Badminton Stats
-              </h2>
-              <p className="text-sm text-gray-500 leading-6 text-center lg:text-left">
-                Experience the best facilities for your badminton training and
-                competitions.
-              </p>
-            </div>
-            <div className="w-full lg:w-4/5">
-              <div className="flex flex-col flex-1 gap-10 lg:gap-0 lg:flex-row lg:justify-between">
-                <div className="block">
-                  <div className="font-manrope font-bold text-4xl text-indigo-600 mb-3 text-center lg:text-left">
-                    15+
-                  </div>
-                  <span className="text-gray-900 text-center block lg:text-left">
-                    Badminton Courts
-                  </span>
-                </div>
-                <div className="block">
-                  <div className="font-manrope font-bold text-4xl text-indigo-600 mb-3 text-center lg:text-left">
-                    500+
-                  </div>
-                  <span className="text-gray-900 text-center block lg:text-left">
-                    Daily Players
-                  </span>
-                </div>
-                <div className="block">
-                  <div className="font-manrope font-bold text-4xl text-indigo-600 mb-3 text-center lg:text-left">
-                    200+
-                  </div>
-                  <span className="text-gray-900 text-center block lg:text-left">
-                    Tournaments Hosted
-                  </span>
-                </div>
-                <div className="block">
-                  <div className="font-manrope font-bold text-4xl text-indigo-600 mb-3 text-center lg:text-left">
-                    50+
-                  </div>
-                  <span className="text-gray-900 text-center block lg:text-left">
-                    Professional Coaches
-                  </span>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useGetProfileQuery } from "../redux/api/api";
 
 const UserDashboard: React.FC = () => {
-  const { data: user, error, isLoading } = useGetProfileQuery(null);
+  const { data: user } = useGetProfileQuery(null);
 
   const userName = user?.data?.name;
   return (

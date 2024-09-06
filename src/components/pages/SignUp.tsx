@@ -51,7 +51,7 @@ const SignUp: React.FC = () => {
       setTimeout(() => {
         navigate('/login');
       }, 1500);
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (err?.data?.message === 'Email already exists') {
         toast.error('Email already exists. Please use a different email.', {
           position: 'top-right',

@@ -4,11 +4,27 @@ import { TailSpin } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+// Define interfaces for the structure of booking and facility
+interface Facility {
+  _id: string;
+  name: string;
+  image: string;
+}
+
+interface Booking {
+  _id: string;
+  facility: Facility;
+  date: string;
+  startTime: string;
+  endTime: string;
+  payableAmount: number;
+}
+
 const ViewBookingsUser: React.FC = () => {
   const { data, error, isLoading, refetch } = useGetUserBookingsQuery(null);
   const [deleteBooking] = useDeleteBookingMutation();
 
-  const bookings = data?.data || [];
+  const bookings: Booking[] = data?.data || []; // Use the Booking interface for the bookings array
 
   if (error) {
     toast.error("Error loading bookings.");
@@ -33,7 +49,7 @@ const ViewBookingsUser: React.FC = () => {
   };
 
   return (
-    <div style={{marginTop:'85px'}} className="min-h-screen bg-gray-50 py-8">
+    <div style={{ marginTop: '85px' }} className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto">
         <ToastContainer />
 
@@ -56,7 +72,7 @@ const ViewBookingsUser: React.FC = () => {
         {/* Display Bookings */}
         {bookings.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bookings.map((booking: any) => (
+            {bookings.map((booking: Booking) => (
               <div
                 key={booking._id}
                 className="relative flex flex-col bg-white shadow-lg rounded-lg p-6 transform transition-transform duration-300 hover:scale-105"
