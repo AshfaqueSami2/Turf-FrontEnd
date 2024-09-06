@@ -194,6 +194,79 @@ const ContactUs = () => {
 
 
     {/* component 3 */}
+    <section className="py-24 relative">
+      <div className="w-full max-w-7xl px-4 md:px-5 lg:px-5 mx-auto">
+        <div className="w-full flex-col justify-start items-start gap-12 inline-flex">
+          <h2 className="w-full text-center text-gray-900 text-4xl font-bold leading-normal">Contact Us</h2>
+          <div className="w-full lg:p-11 md:p-8 p-7 bg-white rounded-3xl shadow-[0px_15px_60px_-4px_rgba(16,_24,_40,_0.08)] flex-col justify-start items-start flex">
+            <div className="w-full flex-col justify-start items-start gap-8 flex">
+              <div className="w-full flex-col justify-start items-start gap-1.5 flex">
+                <label htmlFor="name" className="flex gap-1 items-center text-gray-600 text-base font-medium leading-relaxed">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-lg font-normal leading-relaxed px-5 py-3 rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] border border-gray-200"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div className="w-full flex-col justify-start items-start gap-1.5 flex">
+                <label htmlFor="email" className="flex gap-1 items-center text-gray-600 text-base font-medium leading-relaxed">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-lg font-normal leading-relaxed px-5 py-3 rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] border border-gray-200"
+                  placeholder="Your Email"
+                />
+              </div>
+              <div className="w-full flex-col justify-start items-start gap-1.5 flex">
+                <label htmlFor="subject" className="flex gap-1 items-center text-gray-600 text-base font-medium leading-relaxed">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-lg font-normal leading-relaxed px-5 py-3 rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] border border-gray-200"
+                  placeholder="Subject"
+                />
+              </div>
+              <div className="w-full flex-col justify-start items-start gap-1.5 flex">
+                <label htmlFor="message" className="flex gap-1 items-center text-gray-600 text-base font-medium leading-relaxed">Message</label>
+                <textarea
+                  id="message"
+                  rows={5}
+                  className="w-full focus:outline-none text-gray-900 placeholder-gray-400 text-lg font-normal leading-relaxed px-5 py-3 rounded-lg shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] border border-gray-200"
+                  placeholder="Write your message..."
+                />
+              </div>
+              <div className="w-full justify-start items-start gap-8 flex sm:flex-row flex-col">
+                <button
+               
+                  className="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 transition-all duration-700 ease-in-out rounded-xl shadow-[0px_1px_2px_0px_rgba(16,_24,_40,_0.05)] text-white text-lg font-semibold"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Toast Container */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-center text-3xl font-bold mb-6">Our Location in Germany</h2>
+          <div className="w-full h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2429.4986059411194!2d13.380905315494995!3d52.51929347981254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851e632b39813%3A0x3fbff4292c10415a!2sUnter%20den%20Linden%2C%2010117%20Berlin%2C%20Germany!5e0!3m2!1sen!2sde!4v1693854962903!5m2!1sen!2sde"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              title="Map of Berlin, Germany"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </section>
 </div>
   );
 };
