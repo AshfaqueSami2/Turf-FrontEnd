@@ -52,7 +52,6 @@ const UpdateFacility = () => {
         draggable: true,
         progress: undefined,
         className: "bg-green-500 text-white text-lg font-semibold",
-        icon: "✅", // Success icon
       });
 
       // Redirect after success
