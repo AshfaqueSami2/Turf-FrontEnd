@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useGetFacilitiesQuery, useDeleteFacilityMutation } from '../../redux/api/api';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,11 +6,19 @@ import 'react-toastify/dist/ReactToastify.css';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
+interface Facility {
+  _id: string;
+  name: string;
+  image: string;
+  description: string;
+  pricePerHour: number;
+}
+
 const ViewFacilities = () => {
   const { data, error, isLoading, refetch } = useGetFacilitiesQuery(null);
   const [deleteFacility] = useDeleteFacilityMutation();
   const navigate = useNavigate();
-  const [facilities, setFacilities] = useState(data?.data || []);
+  const [facilities, setFacilities] = useState<Facility[]>(data?.data || []);
 
   useEffect(() => {
     if (data?.data) {
@@ -18,7 +26,7 @@ const ViewFacilities = () => {
     }
   }, [data]);
 
-  const handleDelete = (facilityId) => {
+  const handleDelete = (facilityId: string) => {
     confirmAlert({
       title: 'Confirm to delete',
       message: 'Are you sure you want to delete this facility?',
@@ -31,12 +39,17 @@ const ViewFacilities = () => {
               toast.success('Facility deleted successfully');
               
               // Update the local state to remove the deleted facility
-              setFacilities(facilities.filter(facility => facility._id !== facilityId));
+              setFacilities(facilities.filter((facility) => facility._id !== facilityId));
               
               // Optionally, you can also refetch the facilities to keep the UI in sync
               refetch();
             } catch (error) {
-              toast.error(`Error: ${error.message}`);
+              // Use a type guard to safely access error.message
+              if (error && typeof error === 'object' && 'message' in error) {
+                toast.error(`Error: ${(error as any).message}`);
+              } else {
+                toast.error('Failed to delete the facility.');
+              }
             }
           },
         },
@@ -56,7 +69,7 @@ const ViewFacilities = () => {
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
       <h1 className="text-2xl font-bold mb-4 text-center">All Facilities</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {facilities.map((facility) => (
+        {facilities.map((facility: Facility) => (
           <div key={facility._id} className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
             <div className="group relative">
               <img src={facility.image} alt={facility.name} className="w-full h-48 object-cover rounded-lg"/>

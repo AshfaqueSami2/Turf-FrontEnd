@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { useUpdateFacilityMutation } from '../../redux/api/api';
 import { ToastContainer, toast } from 'react-toastify';
@@ -32,7 +32,7 @@ const UpdateFacility = () => {
     }
   }, [location.state]);
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -71,7 +71,6 @@ const UpdateFacility = () => {
         draggable: true,
         progress: undefined,
         className: "bg-red-500 text-white text-lg font-semibold",
-        icon: "❌", // Error icon
       });
     }
   };

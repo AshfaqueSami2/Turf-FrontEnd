@@ -3,14 +3,20 @@ import { useLoginMutation } from '../../redux/auth/authApi';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [loginMutation, { isLoading }] = useLoginMutation();
-  const { login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext)! ; // Use login from context
   const navigate = useNavigate();
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,9 +26,9 @@ const LoginForm: React.FC = () => {
       const response = await loginMutation(userCredentials).unwrap();
 
       const token = response.token;
-      const role = response.data.role;
+      const role = response.data.role; // Ensure API response contains role information
 
-      login(token, role);
+      login(token, role); // Store token and role in context
 
       toast.success('Login successful!', {
         position: "top-right",
@@ -60,14 +66,10 @@ const LoginForm: React.FC = () => {
         {/* Left Side - Form */}
         <div className="w-full md:w-1/2 p-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-6">Welcome Back!</h1>
-          <p className="text-gray-600 mb-6">
-            Hey, welcome back to your special place
-          </p>
+          <p className="text-gray-600 mb-6">Hey, welcome back to your special place</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email Address
-              </label>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
               <input
                 type="email"
                 id="email"
@@ -79,33 +81,34 @@ const LoginForm: React.FC = () => {
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="shadow-sm rounded-md w-full px-4 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <div className="relative">
+                <input
+                  type={passwordVisible ? 'text' : 'password'}
+                  id="password"
+                  className="shadow-sm rounded-md w-full px-4 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="flex items-center justify-between">
               <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                />
+                <input type="checkbox" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded" />
                 <span className="ml-2 text-sm text-gray-600">Remember me</span>
               </label>
-              <a
-                href="#"
-                className="text-sm text-indigo-600 hover:underline"
-              >
-                Forgot Password?
-              </a>
+              <a href="#" className="text-sm text-indigo-600 hover:underline">Forgot Password?</a>
             </div>
             <button
               type="submit"
@@ -116,20 +119,12 @@ const LoginForm: React.FC = () => {
             </button>
           </form>
           <p className="text-sm text-gray-600 mt-4">
-            Don't have an account?{" "}
-            <Link to='/signUp' className="text-indigo-600 hover:underline">
-              Create Account
-            </Link>
+            Don't have an account? <Link to='/signUp' className="text-indigo-600 hover:underline">Create Account</Link>
           </p>
         </div>
-
         {/* Right Side - Illustration */}
         <div className="hidden md:block md:w-1/2 bg-indigo-600 relative">
-          <img
-            src="https://i.ibb.co/4ppsJ4C/original-ba68e98ea10e1867e831884c3b153387.png" // Ensure this path is correct
-            alt="Illustration"
-            className="w-full h-full object-cover"
-          />
+          <img src="https://i.ibb.co/4ppsJ4C/original-ba68e98ea10e1867e831884c3b153387.png" alt="Illustration" className="w-full h-full object-cover" />
         </div>
       </div>
       <ToastContainer />

@@ -50,8 +50,10 @@ const BookNow = () => {
       toast.success('Booking confirmed!');
     } catch (error) {
       console.error(error);
-      const errorMessage = error?.data?.message || error.message || 'Failed to confirm booking. Please try again.';
-      toast.error(errorMessage);    }
+      const errorMessage =
+        (error as any)?.data?.message || (error as any).message || 'Failed to confirm booking. Please try again.';
+      toast.error(errorMessage);
+    }
   };
 
   return (
@@ -80,7 +82,9 @@ const BookNow = () => {
       </button>
 
       {/* Availability Display */}
-      {error && <div className="text-red-500 mb-6">Error: {error.message}</div>}
+      {error && 'message' in error && (
+        <div className="text-red-500 mb-6">Error: {error.message}</div>
+      )}
       {data?.availableSlots && data.availableSlots.length > 0 ? (
         <div className="mb-6">
           <h2 className="text-lg font-medium text-gray-800 mb-2">Available Slots:</h2>
@@ -137,5 +141,3 @@ const BookNow = () => {
 };
 
 export default BookNow;
-
-

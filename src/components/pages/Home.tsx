@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Banner from "../layout/Banner";
 import FeaturedFacilities from "./FeaturedFacilities";
 import HowItWorks from "./HowItWorks";

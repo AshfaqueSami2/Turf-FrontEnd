@@ -13,7 +13,13 @@ const AdminDashboard: React.FC = () => {
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    // Use a type guard to safely check for error message
+    const errorMessage =
+      "data" in error && error.data && typeof error.data === "object" && "message" in error.data
+        ? (error.data as any).message
+        : "An error occurred";
+
+    return <div>Error: {errorMessage}</div>;
   }
 
   const userName = user?.data?.name;
@@ -22,7 +28,7 @@ const AdminDashboard: React.FC = () => {
     <div style={{marginTop:'85px'}} className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
       <aside className="w-64 bg-gray-900 text-white flex flex-col">
-        <div className="flex items-center justify-center h-20 border-b border-gray-800">
+      <div className="flex items-center justify-center h-20 border-b border-gray-800">
           <div className="text-3xl font-bold text-green-400">Admin Panel</div>
         </div>
         <nav className="mt-10 flex-1">

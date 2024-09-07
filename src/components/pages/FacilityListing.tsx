@@ -34,7 +34,7 @@ const FacilityListing: React.FC = () => {
   }
 
   // **Filter the facilities first** based on search term, min price, and max price
-  const filteredFacilities = facilities?.data.filter((facility: any) => {
+  const filteredFacilities = facilities?.data.filter((facility: Facility) => {
     const matchesSearch =
       facility.name.toLowerCase().includes(filterValues.searchTerm.toLowerCase()) ||
       facility.location.toLowerCase().includes(filterValues.searchTerm.toLowerCase());

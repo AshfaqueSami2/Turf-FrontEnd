@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 
-interface AuthContextType {
+export interface AuthContextType {
   isAuthenticated: boolean;
   isAdmin: boolean;
   login: (token: string, role: string) => void;
@@ -37,7 +37,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setIsAdmin(role === 'admin');
   };
 
-  const logout = () => {
+ const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('role'); // Remove the role from localStorage
     setIsAuthenticated(false);
@@ -62,6 +62,3 @@ export const useAuth = () => {
   }
   return context;
 };
-
-
-

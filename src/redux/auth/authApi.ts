@@ -1,22 +1,24 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface LoginRequest {
-  username: string;
+  email: string; // Changed from 'username' to 'email'
   password: string;
 }
 
 export interface LoginResponse {
+  [x: string]: any;
   token: string;
   user: {
     id: string;
     name: string;
     email: string;
+    role: string; // Added role here
   };
 }
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/api/auth' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://assignment-3-liart.vercel.app/api/auth' }),
   endpoints: (builder) => ({
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: (credentials) => ({
@@ -25,8 +27,9 @@ export const authApi = createApi({
         body: credentials,
       }),
     }),
-    // Add more endpoints here as needed (e.g., register, logout, etc.)
   }),
 });
 
 export const { useLoginMutation } = authApi;
+
+

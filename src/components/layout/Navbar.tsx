@@ -1,70 +1,3 @@
-// import { Link, useNavigate } from "react-router-dom";
-// import { useAuth } from "../../Context/AuthContext";
-
-// const Navbar = () => {
-//   const { isAuthenticated, isAdmin, logout } = useAuth();
-//   const navigate = useNavigate();
-
-//   const handleLogout = () => {
-//     logout();
-//     navigate("/");
-//   };
-
-//   return (
-//     <div>
-//       <header className="bg-white shadow-lg">
-//         <div className="container mx-auto px-6 py-3 flex items-center justify-between">
-//           <div className="uppercase text-gray-800 font-bold text-3xl">
-//             Watch.ME
-//           </div>
-//           <div className="flex items-center">
-//             <nav className="hidden lg:flex items-center text-gray-600 uppercase text-lg">
-//               <Link to="/" className="py-2 px-6 flex hover:text-purple-600 transition duration-300">
-//                 Home
-//               </Link>
-//               <Link to="/viewFacilities" className="py-2 px-6 flex hover:text-purple-600 transition duration-300">
-//                 Facilities
-//               </Link>
-//               <Link to="aboutUs" className="py-2 px-6 flex hover:text-purple-600 transition duration-300">
-//                 About Us
-//               </Link>
-//               <Link to='contactUs' className="py-2 px-6 flex hover:text-purple-600 transition duration-300">
-//                 Contact
-//               </Link>
-//               {isAuthenticated && (
-//                 <Link
-//                   to={isAdmin ? "/admin/dashboard" : "/user/dashboard"}
-//                   className="py-2 px-6 flex hover:text-purple-600 transition duration-300"
-//                 >
-//                   Dashboard
-//                 </Link>
-//               )}
-//               {isAuthenticated ? (
-//                 <button
-//                   onClick={handleLogout}
-//                   className="py-2 px-6 flex text-red-600 hover:text-red-800 transition duration-300"
-//                 >
-//                   Logout
-//                 </button>
-//               ) : (
-//                 <Link to="/login" className="py-2 px-6 flex hover:text-purple-600 transition duration-300">
-//                   Login
-//                 </Link>
-//               )}
-//             </nav>
-//             <button className="lg:hidden flex flex-col ml-4">
-//               <span className="w-6 h-1 bg-gray-800 mb-1"></span>
-//               <span className="w-6 h-1 bg-gray-800 mb-1"></span>
-//               <span className="w-6 h-1 bg-gray-800 mb-1"></span>
-//             </button>
-//           </div>
-//         </div>
-//       </header>
-//     </div>
-//   );
-// };
-
-// export default Navbar;
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import { useState } from "react";
@@ -98,7 +31,7 @@ const Navbar = () => {
                 className="mr-3"
               />
               </Link>
-              <Link to="/" className="text-xl font-bold text-gray-800 hover:text-indigo-700 transition-colors duration-300">
+              <Link to="/" className="text-2xl font-bold text-gray-800 hover:text-green-600 transition-colors duration-300">
                 Sam Turf
               </Link>
             </div>
@@ -107,32 +40,32 @@ const Navbar = () => {
             <div className="hidden lg:flex space-x-8">
               <Link
                 to="/"
-                className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
+                className="text-gray-600 text-sm lg:text-base font-medium hover:text-green-600 transition duration-300"
               >
                 Home
               </Link>
               <Link
                 to="/viewFacilities"
-                className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
+                className="text-gray-600 text-sm lg:text-base font-medium hover:text-green-600 transition duration-300"
               >
                 Facilities
               </Link>
               <Link
                 to="/aboutUs"
-                className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
+                className="text-gray-600 text-sm lg:text-base font-medium hover:text-green-600 transition duration-300"
               >
                 About Us
               </Link>
               <Link
                 to="/contactUs"
-                className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
+                className="text-gray-600 text-sm lg:text-base font-medium hover:text-green-600 transition duration-300"
               >
                 Contact
               </Link>
               {isAuthenticated && (
                 <Link
                   to={isAdmin ? "/admin/dashboard" : "/user/dashboard"}
-                  className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
+                  className="text-gray-600 text-sm lg:text-base font-medium hover:text-green-600 transition duration-300"
                 >
                   Dashboard
                 </Link>
@@ -144,14 +77,14 @@ const Navbar = () => {
               {isAuthenticated ? (
                 <button
                   onClick={handleLogout}
-                  className="text-red-600 text-sm lg:text-base font-medium hover:text-red-800 transition duration-300"
+                  className="text-red-600 text-sm lg:text-base font-medium border border-red-600 rounded-md px-4 py-2 hover:bg-red-600 hover:text-white transition duration-300"
                 >
                   Logout
                 </button>
               ) : (
                 <Link
                   to="/login"
-                  className="text-gray-600 text-sm lg:text-base font-medium hover:text-indigo-700 transition duration-300"
+                  className="text-gray-600 text-sm lg:text-base font-medium hover:text-green-600 transition duration-300"
                 >
                   Login/Register
                 </Link>
@@ -185,12 +118,12 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden" id="navbar-with-text">
+          <div className="lg:hidden bg-white shadow-md">
             <ul className="px-4 pt-4 pb-2 space-y-4">
               <li>
                 <Link
                   to="/"
-                  className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  className="block text-gray-600 text-sm font-medium hover:text-green-600 transition duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Home
@@ -199,7 +132,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/viewFacilities"
-                  className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  className="block text-gray-600 text-sm font-medium hover:text-green-600 transition duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Facilities
@@ -208,7 +141,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/aboutUs"
-                  className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  className="block text-gray-600 text-sm font-medium hover:text-green-600 transition duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About Us
@@ -217,7 +150,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/contactUs"
-                  className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                  className="block text-gray-600 text-sm font-medium hover:text-green-600 transition duration-300"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Contact
@@ -227,7 +160,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to={isAdmin ? "/admin/dashboard" : "/user/dashboard"}
-                    className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                    className="block text-gray-600 text-sm font-medium hover:text-green-600 transition duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Dashboard
@@ -238,7 +171,7 @@ const Navbar = () => {
                 <li>
                   <button
                     onClick={handleLogout}
-                    className="w-full text-left text-red-600 text-sm font-medium hover:text-red-800 transition duration-300"
+                    className="w-full text-left text-red-600 text-sm font-medium border border-red-600 rounded-md px-4 py-2 hover:bg-red-600 hover:text-white transition duration-300"
                   >
                     Logout
                   </button>
@@ -247,7 +180,7 @@ const Navbar = () => {
                 <li>
                   <Link
                     to="/login"
-                    className="block text-gray-600 text-sm font-medium hover:text-indigo-700 transition duration-300"
+                    className="block text-gray-600 text-sm font-medium hover:text-green-600 transition duration-300"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Login/Register
