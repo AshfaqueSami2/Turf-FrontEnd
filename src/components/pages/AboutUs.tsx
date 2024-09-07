@@ -35,12 +35,7 @@ const AboutUs = () => {
                   About Us
                 </h2>
                 <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-                  Driven by a passion for seamless user experiences, we've
-                  meticulously curated pagedone to empower creators, designers,
-                  and developers alike. Our mission is to provide a
-                  comprehensive toolkit, enabling you to build intuitive,
-                  beautiful interfaces that resonate with users on every
-                  interaction.
+                At <p className="text-green-700 font-bold inline">Sam Turf,</p> we're driven by a passion for badminton and creating world-class experiences for players of all levels. Our meticulously curated facilities are designed to empower athletes, enthusiasts, and coaches alike. Whether you're honing your skills, competing in tournaments, or simply enjoying the game, our mission is to provide a comprehensive environment that elevates your badminton experience. From our state-of-the-art courts to our dedicated team, every aspect of Sam Turf is built to ensure that every interaction on and off the court resonates with excellence and enthusiasm.
                 </p>
               </div>
             </div>
@@ -53,13 +48,13 @@ const AboutUs = () => {
       <section className="py-24 bg-gray-50">
   <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <h2 className="text-center text-4xl font-extrabold text-gray-900 mb-12">
-      What our customers say about <span className="text-indigo-600">Pagedone</span>
+      What our customers say about <span className="text-indigo-600">Sam Turf</span>
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Testimonial 1 */}
       <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
         <p className="text-gray-700 mb-6">
-          Thanks to pagedone, I feel more informed and confident about my investment decisions than ever before.
+          Thanks to Sam Turf, my badminton skills have improved significantly. The courts are world-class, and the atmosphere is always welcoming.
         </p>
         <div className="flex items-center">
           <img
@@ -69,7 +64,7 @@ const AboutUs = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Emily Johnson</h5>
-            <p className="text-sm text-gray-500">Design Lead</p>
+            <p className="text-sm text-gray-500">Badminton Enthusiast</p>
           </div>
           <div className="ml-auto flex items-center">
             <span className="text-indigo-600 font-semibold">4.9</span>
@@ -94,8 +89,7 @@ const AboutUs = () => {
       {/* Testimonial 2 */}
       <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
         <p className="text-gray-700 mb-6">
-          Pagedone has made it possible for me to stay on top of my portfolio and make informed decisions quickly and
-          easily.
+          Sam Turf has made it possible for me to play in a top-notch facility with excellent coaching and competition. I can't recommend it enough!
         </p>
         <div className="flex items-center">
           <img
@@ -105,7 +99,7 @@ const AboutUs = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Olivia Carter</h5>
-            <p className="text-sm text-gray-500">Product Designer</p>
+            <p className="text-sm text-gray-500">Amateur Player</p>
           </div>
           <div className="ml-auto flex items-center">
             <span className="text-indigo-600 font-semibold">4.9</span>
@@ -130,7 +124,7 @@ const AboutUs = () => {
       {/* Testimonial 3 */}
       <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
         <p className="text-gray-700 mb-6">
-          I've been using pagedone for a year now and it's made managing my finances so much easier.
+          I've been playing at Sam Turf for over a year now, and the quality of the courts and staff is unbeatable. It's the perfect place to train and compete.
         </p>
         <div className="flex items-center">
           <img
@@ -165,7 +159,7 @@ const AboutUs = () => {
       {/* Testimonial 4 */}
       <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
         <p className="text-gray-700 mb-6">
-          Thanks to pagedone, I was able to easily and securely transfer funds to my family overseas.
+          Thanks to Sam Turf, I've been able to connect with other badminton players and take my game to the next level.
         </p>
         <div className="flex items-center">
           <img
@@ -175,7 +169,7 @@ const AboutUs = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Ethan Miller</h5>
-            <p className="text-sm text-gray-500">CEO</p>
+            <p className="text-sm text-gray-500">Badminton Coach</p>
           </div>
           <div className="ml-auto flex items-center">
             <span className="text-indigo-600 font-semibold">4.9</span>
@@ -200,7 +194,7 @@ const AboutUs = () => {
       {/* Testimonial 5 */}
       <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
         <p className="text-gray-700 mb-6">
-          The customer service team at pagedone went above and beyond to help me resolve a billing issue.
+          The staff at Sam Turf made sure I had everything I needed during my tournament. The experience was amazing.
         </p>
         <div className="flex items-center">
           <img
@@ -210,7 +204,7 @@ const AboutUs = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Jackson Bennett</h5>
-            <p className="text-sm text-gray-500">Design Lead</p>
+            <p className="text-sm text-gray-500">Tournament Player</p>
           </div>
           <div className="ml-auto flex items-center">
             <span className="text-indigo-600 font-semibold">4.9</span>
@@ -235,7 +229,7 @@ const AboutUs = () => {
       {/* Testimonial 6 */}
       <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
         <p className="text-gray-700 mb-6">
-          Pagedone is simply the best tool of investment in the market right now.
+          Sam Turf is the best place for badminton training and competition. The environment is motivating, and the facilities are unmatched.
         </p>
         <div className="flex items-center">
           <img
@@ -245,7 +239,7 @@ const AboutUs = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Henry Foster</h5>
-            <p className="text-sm text-gray-500">Product Designer</p>
+            <p className="text-sm text-gray-500">Professional Player</p>
           </div>
           <div className="ml-auto flex items-center">
             <span className="text-indigo-600 font-semibold">4.9</span>
@@ -513,391 +507,3 @@ export default AboutUs;
 
 
 
-
-
-
-
-
-
-// import "swiper/swiper-bundle.css"; // Make sure to include Swiper styles
-
-// // Optional: you might need to configure the Swiper settings as per your requirements.
-// const AboutUs = () => {
-//   return (
-//     <div>
-//       {/* About Us Section */}
-//       <section className="py-14 lg:py-24 relative z-0 bg-gray-50">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center">
-//           <h1 className="max-w-2xl mx-auto text-center font-manrope font-bold text-4xl text-gray-900 mb-5 md:text-5xl md:leading-normal">
-//             Elevate Your Game with Our{" "}
-//             <span className="text-indigo-600">Advanced Badminton Tools</span>
-//           </h1>
-//           <p className="max-w-sm mx-auto text-center text-base font-normal leading-7 text-gray-500 mb-9">
-//             Master your badminton skills with cutting-edge tools and expert insights designed for champions.
-//           </p>
-//         </div>
-//       </section>
-
-//       {/* About Us Content Section */}
-//       <section className="py-14 lg:py-24 relative">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
-//             <div className="img-box">
-//               <img
-//                 src="https://example.com/badminton_image.png"
-//                 alt="About Us Badminton"
-//                 className="max-lg:mx-auto"
-//               />
-//             </div>
-//             <div className="lg:pl-[100px] flex items-center">
-//               <div className="data w-full">
-//                 <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center relative">
-//                   About Our Passion for Badminton
-//                 </h2>
-//                 <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-//                   We are dedicated to empowering badminton enthusiasts with the right tools, techniques, and support to master the game. Whether you're a beginner or a professional, we provide everything you need to succeed in badminton.
-//                 </p>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Testimonials Section */}
-//       <section className="py-24 bg-gray-50">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-center text-4xl font-extrabold text-gray-900 mb-12">
-//             What Our Athletes Say About <span className="text-indigo-600">Our Badminton Solutions</span>
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {/* Testimonial 1 */}
-//             <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
-//               <p className="text-gray-700 mb-6">
-//                 The training tools provided have enhanced my reflexes and shot precision. I'm now much more competitive in local tournaments.
-//               </p>
-//               <div className="flex items-center">
-//                 <img
-//                   className="w-12 h-12 rounded-full"
-//                   src="https://randomuser.me/api/portraits/women/1.jpg"
-//                   alt="Emily Johnson"
-//                 />
-//                 <div className="ml-4">
-//                   <h5 className="font-bold text-gray-900">Emily Johnson</h5>
-//                   <p className="text-sm text-gray-500">Amateur Badminton Player</p>
-//                 </div>
-//                 <div className="ml-auto flex items-center">
-//                   <span className="text-indigo-600 font-semibold">4.9</span>
-//                   <svg
-//                     xmlns="http://www.w3.org/2000/svg"
-//                     className="h-5 w-5 text-yellow-400 ml-1"
-//                     fill="none"
-//                     viewBox="0 0 24 24"
-//                     stroke="currentColor"
-//                   >
-//                     <path
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       d="M12 5.74l.515 1.637a1 1 0 00.948.707h1.737l-1.307.946a1 1 0 00-.36 1.118l.514 1.636L12 10.828l-1.515 1.116-.513-1.637a1 1 0 00-.36-1.118l-1.307-.946h1.737a1 1 0 00.947-.707L12 5.74z"
-//                     />
-//                   </svg>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Testimonial 2 */}
-//             <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
-//               <p className="text-gray-700 mb-6">
-//                 Thanks to these tools, I've managed to improve my court coverage and stamina. My confidence on the court is at an all-time high.
-//               </p>
-//               <div className="flex items-center">
-//                 <img
-//                   className="w-12 h-12 rounded-full"
-//                   src="https://randomuser.me/api/portraits/women/2.jpg"
-//                   alt="Olivia Carter"
-//                 />
-//                 <div className="ml-4">
-//                   <h5 className="font-bold text-gray-900">Olivia Carter</h5>
-//                   <p className="text-sm text-gray-500">Semi-Pro Badminton Player</p>
-//                 </div>
-//                 <div className="ml-auto flex items-center">
-//                   <span className="text-indigo-600 font-semibold">4.8</span>
-//                   <svg
-//                     xmlns="http://www.w3.org/2000/svg"
-//                     className="h-5 w-5 text-yellow-400 ml-1"
-//                     fill="none"
-//                     viewBox="0 0 24 24"
-//                     stroke="currentColor"
-//                   >
-//                     <path
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       d="M12 5.74l.515 1.637a1 1 0 00.948.707h1.737l-1.307.946a1 1 0 00-.36 1.118l.514 1.636L12 10.828l-1.515 1.116-.513-1.637a1 1 0 00-.36-1.118l-1.307-.946h1.737a1 1 0 00.947-.707L12 5.74z"
-//                     />
-//                   </svg>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Testimonial 3 */}
-//             <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
-//               <p className="text-gray-700 mb-6">
-//                 Using these resources, I’ve been able to train more effectively and hone my skills for national-level competitions.
-//               </p>
-//               <div className="flex items-center">
-//                 <img
-//                   className="w-12 h-12 rounded-full"
-//                   src="https://randomuser.me/api/portraits/men/1.jpg"
-//                   alt="Wyatt Turner"
-//                 />
-//                 <div className="ml-4">
-//                   <h5 className="font-bold text-gray-900">Wyatt Turner</h5>
-//                   <p className="text-sm text-gray-500">Badminton Coach</p>
-//                 </div>
-//                 <div className="ml-auto flex items-center">
-//                   <span className="text-indigo-600 font-semibold">4.9</span>
-//                   <svg
-//                     xmlns="http://www.w3.org/2000/svg"
-//                     className="h-5 w-5 text-yellow-400 ml-1"
-//                     fill="none"
-//                     viewBox="0 0 24 24"
-//                     stroke="currentColor"
-//                   >
-//                     <path
-//                       strokeLinecap="round"
-//                       strokeLinejoin="round"
-//                       strokeWidth={2}
-//                       d="M12 5.74l.515 1.637a1 1 0 00.948.707h1.737l-1.307.946a1 1 0 00-.36 1.118l.514 1.636L12 10.828l-1.515 1.116-.513-1.637a1 1 0 00-.36-1.118l-1.307-.946h1.737a1 1 0 00.947-.707L12 5.74z"
-//                     />
-//                   </svg>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Our Journey Since 2005 */}
-//       <section className="py-14 lg:py-24 relative">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-9">
-//             <div className="lg:pr-24 flex items-center">
-//               <div className="data w-full">
-//                 <img
-//                   src="https://example.com/badminton_journey.png"
-//                   alt="Badminton Journey"
-//                   className="block lg:hidden mb-9 mx-auto"
-//                 />
-//                 <h2 className="font-manrope font-bold text-4xl lg:text-5xl text-black mb-9 max-lg:text-center">
-//                   We’ve Been Training Badminton Enthusiasts Since 2005
-//                 </h2>
-//                 <p className="font-normal text-xl leading-8 text-gray-500 max-lg:text-center max-w-2xl mx-auto">
-//                   With over 15 years of experience, we focus on building well-rounded athletes by providing access to the best training tools and coaching techniques.
-//                 </p>
-//               </div>
-//             </div>
-//             <div className="img-box">
-//               <img
-//                 src="https://example.com/badminton_training.png"
-//                 alt="Badminton Training"
-//                 className="hidden lg:block"
-//               />
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Results in Numbers */}
-//       <section className="py-20 bg-white">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-//           <h2 className="font-manrope text-4xl text-center text-gray-900 font-bold mb-14">
-//             Our Achievements in Numbers
-//           </h2>
-//           <div className="flex flex-col gap-5 xl:gap-8 lg:flex-row lg:justify-between">
-//             <div className="w-full lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
-//               <div className="flex gap-5">
-//                 <div className="font-manrope text-2xl font-bold text-indigo-600">
-//                   300%
-//                 </div>
-//                 <div className="flex-1">
-//                   <h4 className="text-xl text-gray-900 font-semibold mb-2">
-//                     Growth in Players' Performance
-//                   </h4>
-//                   <p className="text-xs text-gray-500 leading-5">
-//                     Players who have used our training programs saw significant improvements in speed, precision, and stamina.
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//             <div className="w-full lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
-//               <div className="flex gap-5">
-//                 <div className="font-manrope text-2xl font-bold text-indigo-600">
-//                   500+
-//                 </div>
-//                 <div className="flex-1">
-//                   <h4 className="text-xl text-gray-900 font-semibold mb-2">
-//                     Athletes Trained
-//                   </h4>
-//                   <p className="text-xs text-gray-500 leading-5">
-//                     We've helped over 500 athletes elevate their game through advanced tools, techniques, and personalized coaching.
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//             <div className="w-full lg:w-1/3 bg-white p-6 rounded-2xl shadow-md shadow-gray-100">
-//               <div className="flex gap-5">
-//                 <div className="font-manrope text-2xl font-bold text-indigo-600">
-//                   850+
-//                 </div>
-//                 <div className="flex-1">
-//                   <h4 className="text-xl text-gray-900 font-semibold mb-2">
-//                     Successful Competitions
-//                   </h4>
-//                   <p className="text-xs text-gray-500 leading-5">
-//                     Athletes we’ve trained have participated in over 850 local, national, and international badminton competitions.
-//                   </p>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Team Section */}
-//       <section className="py-24 bg-gray-50">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-//           <div className="flex justify-between items-center flex-col lg:flex-row md:mt-20">
-//             <div className="w-full lg:w-1/2">
-//               <h2 className="font-manrope text-5xl text-gray-900 font-bold leading-[4rem] mb-7 text-center lg:text-left">
-//                 Our Dedicated & Professional Team
-//               </h2>
-//               <p className="text-lg text-gray-500 mb-16 text-center lg:text-left">
-//                 Meet the coaches and experts dedicated to taking your badminton skills to the next level.
-//               </p>
-//               <button className="cursor-pointer py-3 px-8 w-60 bg-indigo-600 text-white text-base font-semibold transition-all duration-500 block text-center rounded-full hover:bg-indigo-700 mx-auto lg:mx-0">
-//                 Join Our Team
-//               </button>
-//             </div>
-//             <div className="w-full lg:w-1/2 lg:mt-0 md:mt-40 mt-16">
-//               <div className="grid grid-cols-1 min-[450px]:grid-cols-2 md:grid-cols-3 gap-8">
-//                 <img
-//                   src="https://example.com/team_member1.png"
-//                   alt="Team Member 1"
-//                   className="w-44 h-56 rounded-2xl object-cover md:mt-20 mx-auto"
-//                 />
-//                 <img
-//                   src="https://example.com/team_member2.png"
-//                   alt="Team Member 2"
-//                   className="w-44 h-56 rounded-2xl object-cover mx-auto"
-//                 />
-//                 <img
-//                   src="https://example.com/team_member3.png"
-//                   alt="Team Member 3"
-//                   className="w-44 h-56 rounded-2xl object-cover md:mt-20 mx-auto"
-//                 />
-//                 <img
-//                   src="https://example.com/team_member4.png"
-//                   alt="Team Member 4"
-//                   className="w-44 h-56 rounded-2xl object-cover mx-auto"
-//                 />
-//                 <img
-//                   src="https://example.com/team_member5.png"
-//                   alt="Team Member 5"
-//                   className="w-44 h-56 rounded-2xl object-cover mx-auto"
-//                 />
-//                 <img
-//                   src="https://example.com/team_member6.png"
-//                   alt="Team Member 6"
-//                   className="w-44 h-56 rounded-2xl object-cover mx-auto"
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Contact Us Section */}
-//       <section className="py-24">
-//         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-//           <div className="md:flex gap-x-24 md:mb-16 mb-10">
-//             <div className="md:mb-0 mb-4">
-//               <h2 className="text-black font-manrope text-4xl font-semibold leading-10 mb-5 md:text-left text-center">Get In Touch</h2>
-//               <p className="text-gray-600 text-lg font-normal leading-7 mb-7 md:text-left text-center">
-//                 Have questions about badminton training? We are here to help. Reach out and let's improve your game together.
-//               </p>
-//               <div className="flex md:items-center md:justify-start justify-center">
-//                 <button className="w-36 h-12 rounded-full bg-indigo-600 transition-all duration-700 hover:bg-indigo-800 shadow text-white text-center text-base font-semibold leading-6">
-//                   Contact Us
-//                 </button>
-//               </div>
-//             </div>
-//             <div className="border-l-2 md:border-indigo-600 border-white px-10 py-6">
-//               <div className="mb-8">
-//                 <h6 className="text-gray-500 text-sm font-medium leading-5 pb-3 md:text-start text-center">Email Address</h6>
-//                 <h3 className="text-black text-xl font-semibold leading-8 md:text-start text-center">sports@badminton.com</h3>
-//               </div>
-//               <div>
-//                 <h6 className="text-gray-500 text-sm font-medium leading-5 pb-3 md:text-start text-center">Phone Number</h6>
-//                 <h3 className="text-black text-xl font-semibold leading-8 md:text-start text-center">123-456-7890</h3>
-//               </div>
-//             </div>
-//           </div>
-//           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
-//             <div className="h-96 relative flex justify-center">
-//               <div className="w-full h-full absolute bg-gradient-to-t from-gray-800/50 to-gray-600/50"></div>
-//               <img
-//                 src="https://example.com/location_uk.png"
-//                 alt="United Kingdom"
-//                 className="w-full h-full object-cover"
-//               />
-//               <div className="absolute bottom-0 mb-6 text-center px-6">
-//                 <h5 className="text-white text-lg font-semibold leading-7 mb-2">United Kingdom</h5>
-//                 <p className="text-white text-base font-medium leading-6">Badminton Center, London</p>
-//               </div>
-//             </div>
-//             <div className="h-96 relative flex justify-center">
-//               <div className="w-full h-full absolute bg-gradient-to-t from-gray-800/50 to-gray-600/50"></div>
-//               <img
-//                 src="https://example.com/location_germany.png"
-//                 alt="Germany"
-//                 className="w-full h-full object-cover"
-//               />
-//               <div className="absolute bottom-0 mb-6 text-center px-6">
-//                 <h5 className="text-white text-lg font-semibold leading-7 mb-2">Germany</h5>
-//                 <p className="text-white text-base font-medium leading-6">Badminton Academy, Berlin</p>
-//               </div>
-//             </div>
-//             <div className="h-96 relative flex justify-center">
-//               <div className="w-full h-full absolute bg-gradient-to-t from-gray-800/50 to-gray-600/50"></div>
-//               <img
-//                 src="https://example.com/location_france.png"
-//                 alt="France"
-//                 className="w-full h-full object-cover"
-//               />
-//               <div className="absolute bottom-0 mb-6 text-center px-6">
-//                 <h5 className="text-white text-lg font-semibold leading-7 mb-2">France</h5>
-//                 <p className="text-white text-base font-medium leading-6">Training Center, Paris</p>
-//               </div>
-//             </div>
-//             <div className="h-96 relative flex justify-center">
-//               <div className="w-full h-full absolute bg-gradient-to-t from-gray-800/50 to-gray-600/50"></div>
-//               <img
-//                 src="https://example.com/location_switzerland.png"
-//                 alt="Switzerland"
-//                 className="w-full h-full object-cover"
-//               />
-//               <div className="absolute bottom-0 mb-6 text-center px-6">
-//                 <h5 className="text-white text-lg font-semibold leading-7 mb-2">Switzerland</h5>
-//                 <p className="text-white text-base font-medium leading-6">Sports Arena, Zurich</p>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//     </div>
-//   );
-// };
-
-// export default AboutUs;

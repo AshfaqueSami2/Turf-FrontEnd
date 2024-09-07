@@ -9,13 +9,17 @@ const Footer = () => {
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-6 gap-y-8 py-10 max-w-sm mx-auto sm:max-w-3xl lg:max-w-full">
           {/* Logo and Description */}
           <div className="col-span-full mb-10 lg:col-span-2 lg:mb-0">
-           <img style={{height:'100px',borderRadius:'15px'}} src="https://i.ibb.co/TBr176y/Gemini-Generated-Image-9pcug49pcug49pcu.jpg" alt="" />
+            <img
+              style={{ height: "100px", borderRadius: "15px" }}
+              src="https://i.ibb.co/TBr176y/Gemini-Generated-Image-9pcug49pcug49pcu.jpg"
+              alt=""
+            />
             <p className="py-8 text-sm text-gray-500 lg:max-w-xs text-center lg:text-left">
               Trusted in more than 100 countries & 5 million customers. Have any
               query?
             </p>
             <Link
-              to='/contactUs'
+              to="/contactUs"
               className="py-2.5 px-5 h-9 block w-fit bg-indigo-600 rounded-full shadow-md text-xs text-white mx-auto transition-all duration-500 hover:bg-indigo-700 lg:mx-0"
             >
               Contact us
@@ -27,19 +31,25 @@ const Footer = () => {
             <h4 className="text-lg text-gray-900 font-medium mb-7">Sam Turf</h4>
             <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
-                <Link to='/' className="text-gray-600 hover:text-gray-900">
+                <Link to="/" className="text-gray-600 hover:text-gray-900">
                   Home
                 </Link>
               </li>
               <li className="mb-6">
-              <Link to='/aboutUs' className="text-gray-600 hover:text-gray-900">
-                About Us
+                <Link
+                  to="/aboutUs"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  About Us
                 </Link>
               </li>
-              <li>
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
-                  Pricing
-                </a>
+              <li className="mb-6">
+                <Link
+                  to="/contactUs"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -49,17 +59,26 @@ const Footer = () => {
             <h4 className="text-lg text-gray-900 font-medium mb-7">Products</h4>
             <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
+                <a
+                  href="javascript:;"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Figma UI System
                 </a>
               </li>
               <li className="mb-6">
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
+                <a
+                  href="javascript:;"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Icons Assets
                 </a>
               </li>
               <li>
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
+                <a
+                  href="javascript:;"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Responsive Blocks
                 </a>
               </li>
@@ -71,17 +90,26 @@ const Footer = () => {
             <h4 className="text-lg text-gray-900 font-medium mb-7">Support</h4>
             <ul className="text-sm transition-all duration-500">
               <li className="mb-6">
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
+                <a
+                  href="javascript:;"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Customer Support
                 </a>
               </li>
               <li className="mb-6">
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
+                <a
+                  href="javascript:;"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="javascript:;" className="text-gray-600 hover:text-gray-900">
+                <a
+                  href="javascript:;"
+                  className="text-gray-600 hover:text-gray-900"
+                >
                   Privacy Policy
                 </a>
               </li>
@@ -90,7 +118,9 @@ const Footer = () => {
 
           {/* Subscribe Section */}
           <div className="lg:mx-auto text-left">
-            <h4 className="text-lg text-gray-900 font-medium mb-7">Subscribe</h4>
+            <h4 className="text-lg text-gray-900 font-medium mb-7">
+              Subscribe
+            </h4>
             <p className="text-sm text-gray-500 leading-6 mb-7">
               Subscribe to get the latest news from us
             </p>

@@ -15,7 +15,7 @@ const CreateFacility = () => {
   const handleCreateFacility = async () => {
     try {
       await createFacility({ name, description, pricePerHour, location, image }).unwrap();
-      
+
       // Success toast with black background
       toast.success('Facility created successfully!', {
         position: "top-right",
@@ -27,7 +27,14 @@ const CreateFacility = () => {
         progress: undefined,
         className: "bg-black text-white"
       });
-      
+
+      // Reset form fields
+      setName('');
+      setDescription('');
+      setPricePerHour(0);
+      setLocation('');
+      setImage('');
+
     } catch (error) {
       // Error toast
       toast.error('Failed to create facility. Please try again.', {

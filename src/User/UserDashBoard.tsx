@@ -52,7 +52,7 @@ const UserDashboard: React.FC = () => {
           <div className="flex items-center space-x-4">
             <div className="text-right">
               <p className="text-gray-800 font-semibold">{userName}</p>
-              <p className="text-gray-500 text-sm">@s4daiy</p>
+              <p className="text-gray-500 text-sm">{user?.data?.role}</p>
             </div>
             <img
               src="https://via.placeholder.com/40"

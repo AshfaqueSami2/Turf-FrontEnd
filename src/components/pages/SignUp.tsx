@@ -191,7 +191,7 @@ const SignUp: React.FC = () => {
         {/* Right Side - Illustration */}
         <div className="hidden md:block md:w-1/2 bg-purple-600 relative">
           <img
-            src="/mnt/data/Screenshot 2024-09-03 223646.png" // Ensure this path is correct
+            src="https://i.ibb.co/4ppsJ4C/original-ba68e98ea10e1867e831884c3b153387.png"
             alt="Illustration"
             className="w-full h-full object-cover"
           />

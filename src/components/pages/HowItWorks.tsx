@@ -100,9 +100,9 @@ const HowItWorks: React.FC = () => {
     </h2>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {/* Testimonial 1 */}
-      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-green-600">
         <p className="text-gray-700 mb-6">
-          Thanks to pagedone, I feel more informed and confident about my investment decisions than ever before.
+          Thanks to Sam Turf, my badminton skills have improved significantly. The courts are world-class, and the atmosphere is always welcoming.
         </p>
         <div className="flex items-center">
           <img
@@ -112,10 +112,10 @@ const HowItWorks: React.FC = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Emily Johnson</h5>
-            <p className="text-sm text-gray-500">Design Lead</p>
+            <p className="text-sm text-gray-500">Badminton Enthusiast</p>
           </div>
           <div className="ml-auto flex items-center">
-            <span className="text-indigo-600 font-semibold">4.9</span>
+            <span className="text-green-600 font-semibold">4.9</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-400 ml-1"
@@ -135,10 +135,9 @@ const HowItWorks: React.FC = () => {
       </div>
 
       {/* Testimonial 2 */}
-      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-green-600">
         <p className="text-gray-700 mb-6">
-          Pagedone has made it possible for me to stay on top of my portfolio and make informed decisions quickly and
-          easily.
+          Sam Turf has made it possible for me to play in a top-notch facility with excellent coaching and competition. I can't recommend it enough!
         </p>
         <div className="flex items-center">
           <img
@@ -148,10 +147,10 @@ const HowItWorks: React.FC = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Olivia Carter</h5>
-            <p className="text-sm text-gray-500">Product Designer</p>
+            <p className="text-sm text-gray-500">Amateur Player</p>
           </div>
           <div className="ml-auto flex items-center">
-            <span className="text-indigo-600 font-semibold">4.9</span>
+            <span className="text-green-600 font-semibold">4.9</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-400 ml-1"
@@ -171,9 +170,9 @@ const HowItWorks: React.FC = () => {
       </div>
 
       {/* Testimonial 3 */}
-      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-green-600">
         <p className="text-gray-700 mb-6">
-          I've been using pagedone for a year now and it's made managing my finances so much easier.
+          I've been playing at Sam Turf for over a year now, and the quality of the courts and staff is unbeatable. It's the perfect place to train and compete.
         </p>
         <div className="flex items-center">
           <img
@@ -186,7 +185,7 @@ const HowItWorks: React.FC = () => {
             <p className="text-sm text-gray-500">CEO</p>
           </div>
           <div className="ml-auto flex items-center">
-            <span className="text-indigo-600 font-semibold">4.9</span>
+            <span className="text-green-600 font-semibold">4.9</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-400 ml-1"
@@ -206,9 +205,9 @@ const HowItWorks: React.FC = () => {
       </div>
 
       {/* Testimonial 4 */}
-      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-green-600">
         <p className="text-gray-700 mb-6">
-          Thanks to pagedone, I was able to easily and securely transfer funds to my family overseas.
+          Thanks to Sam Turf, I've been able to connect with other badminton players and take my game to the next level.
         </p>
         <div className="flex items-center">
           <img
@@ -218,10 +217,10 @@ const HowItWorks: React.FC = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Ethan Miller</h5>
-            <p className="text-sm text-gray-500">CEO</p>
+            <p className="text-sm text-gray-500">Badminton Coach</p>
           </div>
           <div className="ml-auto flex items-center">
-            <span className="text-indigo-600 font-semibold">4.9</span>
+            <span className="text-green-600 font-semibold">4.9</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-400 ml-1"
@@ -241,9 +240,9 @@ const HowItWorks: React.FC = () => {
       </div>
 
       {/* Testimonial 5 */}
-      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-green-600">
         <p className="text-gray-700 mb-6">
-          The customer service team at pagedone went above and beyond to help me resolve a billing issue.
+          The staff at Sam Turf made sure I had everything I needed during my tournament. The experience was amazing.
         </p>
         <div className="flex items-center">
           <img
@@ -253,10 +252,10 @@ const HowItWorks: React.FC = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Jackson Bennett</h5>
-            <p className="text-sm text-gray-500">Design Lead</p>
+            <p className="text-sm text-gray-500">Tournament Player</p>
           </div>
           <div className="ml-auto flex items-center">
-            <span className="text-indigo-600 font-semibold">4.9</span>
+            <span className="text-green-600 font-semibold">4.9</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-400 ml-1"
@@ -276,9 +275,9 @@ const HowItWorks: React.FC = () => {
       </div>
 
       {/* Testimonial 6 */}
-      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-indigo-600">
+      <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition duration-300 border border-transparent hover:border-green-600">
         <p className="text-gray-700 mb-6">
-          Pagedone is simply the best tool of investment in the market right now.
+          Sam Turf is the best place for badminton training and competition. The environment is motivating, and the facilities are unmatched.
         </p>
         <div className="flex items-center">
           <img
@@ -288,10 +287,10 @@ const HowItWorks: React.FC = () => {
           />
           <div className="ml-4">
             <h5 className="font-bold text-gray-900">Henry Foster</h5>
-            <p className="text-sm text-gray-500">Product Designer</p>
+            <p className="text-sm text-gray-500">Professional Player</p>
           </div>
           <div className="ml-auto flex items-center">
-            <span className="text-indigo-600 font-semibold">4.9</span>
+            <span className="text-green-600 font-semibold">4.9</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-400 ml-1"

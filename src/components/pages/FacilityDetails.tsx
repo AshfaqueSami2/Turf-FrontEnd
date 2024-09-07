@@ -58,8 +58,8 @@ const FacilityDetails: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             {/* Facility Details Section */}
             <div className="pro-detail w-full flex flex-col justify-center order-last lg:order-none max-lg:max-w-[608px] max-lg:mx-auto">
-              <p className="font-medium text-lg text-indigo-600 mb-4">
-                Facility &nbsp; / &nbsp; {facility.category}
+              <p className="font-medium text-lg text-green-600 mb-4">
+                Facility  / ViewFacilities  {facility.category}
               </p>
               <h2 className="mb-2 font-manrope font-bold text-3xl leading-10 text-gray-900">
                 {facility.name}
@@ -104,7 +104,7 @@ const FacilityDetails: React.FC = () => {
 
               <Link
                 to={`/book/${id}`}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 text-center block"
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 text-center block"
               >
                 Book Now
               </Link>
