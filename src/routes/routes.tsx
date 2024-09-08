@@ -1,61 +1,45 @@
+
+
+
+
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../components/pages/Home";
 import Login from "../components/pages/Login";
 import AdminDashboard from "../components/Admin/AdminDashBoard";
-import UserDashboard from "../User/UserDashBoard"; // Add this import
+import UserDashboard from "../User/UserDashBoard";
 import PrivateRoute from "../components/privateRoute/privateRoute";
 import CreateFacility from "../components/Admin/CreateFacility";
 import UpdateFacility from "../components/Admin/UpdateFacility";
 import ViewFacilities from "../components/Admin/ViewFacilities";
-import ViewBookings from "../components/Admin/ViewBookings"; // Import ViewBookings component
+import ViewBookings from "../components/Admin/ViewBookings";
 import CreateAdmin from "../components/Admin/CreateAdmin";
 import SignUp from "../components/pages/SignUp";
 import FacilityListing from "../components/pages/FacilityListing";
 import FacilityDetails from "../components/pages/FacilityDetails";
-import BookNow from "../components/pages/BookNow"; // Import BookNow component
+import BookNow from "../components/pages/BookNow";
 import ViewBookingsUser from "../User/viewBookings";
 import AboutUs from "../components/pages/AboutUs";
 import ContactUs from "../components/pages/ContactUs";
 import NotFoundRoute from "../components/pages/NotFoundRoute";
+import Unauthorized from "../components/pages/UnAuthorized";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login /> },
+      { path: "/aboutUs", element: <AboutUs /> },
+      { path: "/contactUs", element: <ContactUs /> },
+      { path: "/signUp", element: <SignUp /> },
+      { path: "/viewFacilities", element: <FacilityListing /> },
+      { path: "/viewFacilities/:id", element: <FacilityDetails /> },
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/aboutUs",
-        element: <AboutUs></AboutUs> ,
-      },
-      {
-        path: "/contactUs",
-        element: <ContactUs></ContactUs> ,
-      },
-      {
-        path: "/signUp",
-        element: <SignUp />,
-      },
-      {
-        path: "/viewFacilities",
-        element: <FacilityListing />,
-      },
-      {
-        path: "/viewFacilities/:id",
-        element: <FacilityDetails />,
-      },
-      {
-        path: "/book/:id", // New route for booking a facility
+        path: "/book/:id",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="user">
             <BookNow />
           </PrivateRoute>
         ),
@@ -63,7 +47,7 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="admin">
             <AdminDashboard />
           </PrivateRoute>
         ),
@@ -71,15 +55,15 @@ const router = createBrowserRouter([
       {
         path: "/admin/createFacility",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="admin">
             <CreateFacility />
           </PrivateRoute>
         ),
       },
       {
-        path: "/admin/update-facility/:id", // Add this route for updating a facility
+        path: "/admin/update-facility/:id",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="admin">
             <UpdateFacility />
           </PrivateRoute>
         ),
@@ -87,31 +71,23 @@ const router = createBrowserRouter([
       {
         path: "/admin/viewFacilities",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="admin">
             <ViewFacilities />
           </PrivateRoute>
         ),
       },
       {
-        path: "/admin/viewFacility",
+        path: "/admin/viewBookings",
         element: (
-          <PrivateRoute>
-            <ViewFacilities />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/admin/viewBookings", // New route for viewing bookings
-        element: (
-          <PrivateRoute>
+          <PrivateRoute role="admin">
             <ViewBookings />
           </PrivateRoute>
         ),
       },
       {
-        path: "/admin/createAdmin", // Add route for CreateAdmin
+        path: "/admin/createAdmin",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="admin">
             <CreateAdmin />
           </PrivateRoute>
         ),
@@ -119,25 +95,27 @@ const router = createBrowserRouter([
       {
         path: "/user/dashboard",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="user">
             <UserDashboard />
           </PrivateRoute>
         ),
       },
       {
-        path: "/user/viewBookings", // New route for users to view their bookings
+        path: "/user/viewBookings",
         element: (
-          <PrivateRoute>
+          <PrivateRoute role="user">
             <ViewBookingsUser />
           </PrivateRoute>
         ),
       },
       {
-        path:'*',
-        element:(
-          <NotFoundRoute></NotFoundRoute>
-        )
-      }
+        path: "*",
+        element: <NotFoundRoute />,
+      },
+      {
+        path: "/unauthorized",
+        element: <Unauthorized />,
+      },
     ],
   },
 ]);

@@ -3,6 +3,8 @@ import { useGetUserBookingsQuery, useDeleteBookingMutation } from '../redux/api/
 import { TailSpin } from 'react-loader-spinner';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { confirmAlert } from 'react-confirm-alert'; // Import the confirm alert module
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import alert styles
 
 // Define interfaces for the structure of booking and facility
 interface Facility {
@@ -38,14 +40,29 @@ const ViewBookingsUser: React.FC = () => {
     );
   }
 
-  const handleCancelBooking = async (bookingId: string) => {
-    try {
-      await deleteBooking(bookingId).unwrap();
-      toast.success('Booking cancelled successfully!');
-      refetch();
-    } catch (error) {
-      toast.error('Failed to cancel booking. Please try again.');
-    }
+  const handleCancelBooking = (bookingId: string) => {
+    // Show confirmation alert before canceling booking
+    confirmAlert({
+      title: 'Confirm to cancel',
+      message: 'Are you sure you want to cancel this booking?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: async () => {
+            try {
+              await deleteBooking(bookingId).unwrap();
+              toast.success('Booking cancelled successfully!');
+              refetch(); // Refetch the bookings after successful cancellation
+            } catch (error) {
+              toast.error('Failed to cancel booking. Please try again.');
+            }
+          }
+        },
+        {
+          label: 'No'
+        }
+      ]
+    });
   };
 
   return (

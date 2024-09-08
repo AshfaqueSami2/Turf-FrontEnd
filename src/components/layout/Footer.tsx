@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
             <Link
               to="/contactUs"
-              className="py-2.5 px-5 h-9 block w-fit bg-indigo-600 rounded-full shadow-md text-xs text-white mx-auto transition-all duration-500 hover:bg-indigo-700 lg:mx-0"
+              className="py-2.5 px-5 h-9 block w-fit bg-green-600 rounded-full shadow-md text-xs text-white mx-auto transition-all duration-500 hover:bg-green-700 lg:mx-0"
             >
               Contact us
             </Link>

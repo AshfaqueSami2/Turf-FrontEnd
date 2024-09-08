@@ -6,7 +6,7 @@ const HowItWorks: React.FC = () => {
       {/* Heading Section */}
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-extrabold text-indigo-900 mb-4">
-          How Our Badminton Academy Works?
+          How Our Badminton Academy <p className="text-green-600 inline">Works?</p>
         </h2>
         <p className="text-gray-500 text-lg max-w-3xl mx-auto mb-12">
           Discover the steps to boost your badminton skills with our tailored training sessions. Our world-class coaching program ensures rapid improvement and offers an enjoyable learning experience.
@@ -30,7 +30,7 @@ const HowItWorks: React.FC = () => {
           {/* Step 1 */}
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
-              <span className="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-500 text-white font-bold text-xl">
+              <span className="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white font-bold text-xl">
                 1
               </span>
             </div>
@@ -47,7 +47,7 @@ const HowItWorks: React.FC = () => {
           {/* Step 2 */}
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
-              <span className="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-500 text-white font-bold text-xl">
+              <span className="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white font-bold text-xl">
                 2
               </span>
             </div>
@@ -64,7 +64,7 @@ const HowItWorks: React.FC = () => {
           {/* Step 3 */}
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0">
-              <span className="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-500 text-white font-bold text-xl">
+              <span className="flex items-center justify-center h-12 w-12 rounded-full bg-green-500 text-white font-bold text-xl">
                 3
               </span>
             </div>

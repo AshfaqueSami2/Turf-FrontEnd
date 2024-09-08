@@ -39,7 +39,7 @@ const LatestNews: React.FC = () => {
           From the Blog
         </p>
         <h2 className="text-4xl font-extrabold text-gray-900 mt-2">
-          The Latest News
+          The Latest <p className="text-green-500 inline">News</p>
         </h2>
       </div>
 

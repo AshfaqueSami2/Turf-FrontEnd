@@ -10,7 +10,7 @@ const CreateFacility = () => {
   const [location, setLocation] = useState('');
   const [image, setImage] = useState('');
 
-  const [createFacility, { isLoading }] = useCreateFacilityMutation();
+  const [createFacility,{ isLoading }] = useCreateFacilityMutation();
 
   const handleCreateFacility = async () => {
     try {
@@ -35,18 +35,20 @@ const CreateFacility = () => {
       setLocation('');
       setImage('');
 
-    } catch (error) {
-      // Error toast
-      toast.error('Failed to create facility. Please try again.', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        className: "bg-red-500 text-white"
-      });
+    
+    } catch (err:unknown) {
+      const error = err as any;
+      if (error?.data?.errorSources && error.data.errorSources.length > 0) {
+        toast.error(error.data.errorSources[0].message, {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
     }
   };
 

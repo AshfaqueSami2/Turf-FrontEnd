@@ -47,16 +47,31 @@ const LoginForm: React.FC = () => {
         navigate('/user/dashboard');
       }
 
-    } catch (err) {
-      toast.error('Login failed. Check credentials and try again.', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+    } catch (err: unknown) {
+      const error = err as any; // Type assertion to handle TypeScript error
+
+      // Check if the error has errorSources array inside data
+      if (error?.data?.errorSources && error.data.errorSources.length > 0) {
+        toast.error(error.data.errorSources[0].message, {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      } else {
+        toast.error('Login failed. Check credentials and try again.', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+      }
     }
   };
 

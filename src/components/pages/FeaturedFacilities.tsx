@@ -1,4 +1,3 @@
-// export default FeaturedFacilities;
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { useGetFacilitiesQuery } from "../../redux/api/api";
@@ -7,15 +6,16 @@ const FeaturedFacilities = () => {
   const { data, error, isLoading } = useGetFacilitiesQuery(null);
   const [featuredFacilities, setFeaturedFacilities] = useState([]);
 
-//interface
-interface Facility {
-  _id: string;
-  name: string;
-  image: string;
-  pricePerHour: number;
-  oldPrice?: number; // Optional if some facilities do not have an old price
-  status?: string;   // Optional if the status might be undefined
-}
+  // Interface for the Facility
+  interface Facility {
+    _id: string;
+    name: string;
+    image: string;
+    description: string;  // Added description
+    pricePerHour: number;
+    oldPrice?: number; // Optional if some facilities do not have an old price
+    status?: string;   // Optional if the status might be undefined
+  }
 
   useEffect(() => {
     if (data && data.data) {
@@ -39,7 +39,7 @@ interface Facility {
 
   return (
     <div className="bg-[#F9FAFB] p-6 mt-10 max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-8 text-center">Featured Facilities</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Featured <p className="text-green-600 inline">Facilities</p></h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center">
         {featuredFacilities.map((facility: Facility) => (
           <Link
@@ -65,6 +65,7 @@ interface Facility {
             </div>
             <div className="p-5">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">{facility.name}</h3>
+              <p className="text-gray-600 text-sm mb-4 h-16 overflow-hidden">{facility.description}</p> {/* Description added with max height */}
               <div className="flex justify-between items-center">
                 <span className="text-gray-800 font-bold text-lg">${facility.pricePerHour}</span>
                 {facility.oldPrice && (
